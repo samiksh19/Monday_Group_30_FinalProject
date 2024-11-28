@@ -45,7 +45,7 @@ public class ViewPatientHistory extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Case ID", "Department", "Diesease", "Status"
+                "Case ID", "Department", "Disease", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
