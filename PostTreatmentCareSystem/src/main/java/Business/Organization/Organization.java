@@ -4,10 +4,21 @@
  */
 package Business.Organization;
 
+import Business.UserAccount.UserAccountDirectory;
+
 /**
  *
  * @author samik
  */
 public class Organization {
+    private UserAccountDirectory userAccountDirectory;
+
+    public UserAccountDirectory getUserAccountDirectory() {
+        return userAccountDirectory;
+    }
+
+    public void setUserAccountDirectory(UserAccountDirectory userAccountDirectory) {
+        this.userAccountDirectory = userAccountDirectory;
+    }
     
 }
