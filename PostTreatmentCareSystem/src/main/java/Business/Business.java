@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *
  * @author dalea
  */
-public class Business {
+public class Business extends Organization{
     
     private static Business business;
     private ArrayList<Network> networkList;
@@ -25,6 +25,10 @@ public class Business {
             business=new Business();
         }
         return business;
+    }
+
+    public Business() {
+        super(null);
     }
     public Network createAndAddNetwork(){
         Network network=new Network();
