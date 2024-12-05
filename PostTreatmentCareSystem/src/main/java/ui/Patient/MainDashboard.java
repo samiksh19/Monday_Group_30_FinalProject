@@ -4,6 +4,9 @@
  */
 package ui.Patient;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author samik
@@ -13,7 +16,9 @@ public class MainDashboard extends javax.swing.JPanel {
     /**
      * Creates new form MainDashboard
      */
-    public MainDashboard() {
+    private JPanel workArea;
+    
+    public MainDashboard(JPanel workArea) {
         initComponents();
     }
 
@@ -37,6 +42,8 @@ public class MainDashboard extends javax.swing.JPanel {
         btnFamilyDetail = new javax.swing.JButton();
         btnInsurancePlan = new javax.swing.JButton();
         btnPatientHistory = new javax.swing.JButton();
+
+        setLayout(new java.awt.CardLayout());
 
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
@@ -67,14 +74,39 @@ public class MainDashboard extends javax.swing.JPanel {
 
         jSplitPane1.setTopComponent(jPanel1);
 
+        btnReminder.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnReminder.setText("View Reminders");
+        btnReminder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReminderActionPerformed(evt);
+            }
+        });
 
+        btnFeedback.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnFeedback.setText("Feedback");
+        btnFeedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFeedbackActionPerformed(evt);
+            }
+        });
 
+        btnViewReport.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnViewReport.setText("View Report");
+        btnViewReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewReportActionPerformed(evt);
+            }
+        });
 
+        btnFamilyDetail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnFamilyDetail.setText("View Family Details");
+        btnFamilyDetail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFamilyDetailActionPerformed(evt);
+            }
+        });
 
+        btnInsurancePlan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnInsurancePlan.setText("Insurance Recommendation");
         btnInsurancePlan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,7 +114,13 @@ public class MainDashboard extends javax.swing.JPanel {
             }
         });
 
+        btnPatientHistory.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnPatientHistory.setText("View Patient History");
+        btnPatientHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPatientHistoryActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -91,16 +129,16 @@ public class MainDashboard extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(97, 97, 97)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPatientHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(114, 114, 114)
+                    .addComponent(btnPatientHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(91, 91, 91)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnReminder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnFamilyDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(99, 99, 99)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnInsurancePlan, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnViewReport, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnViewReport, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                    .addComponent(btnInsurancePlan, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(137, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -108,37 +146,60 @@ public class MainDashboard extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPatientHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReminder, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnViewReport, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                    .addComponent(btnPatientHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReminder, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnViewReport, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnFamilyDetail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnInsurancePlan, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(153, 153, 153))
+                    .addComponent(btnFamilyDetail, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                    .addComponent(btnInsurancePlan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(142, 142, 142))
         );
 
         jSplitPane1.setRightComponent(jPanel2);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSplitPane1)
-                .addContainerGap())
-        );
+        add(jSplitPane1, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInsurancePlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsurancePlanActionPerformed
         // TODO add your handling code here:
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        workArea.add("InsurranceRecommendation", new InsurranceRecommendation());
+        layout.next(workArea);  
     }//GEN-LAST:event_btnInsurancePlanActionPerformed
+
+    private void btnPatientHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientHistoryActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        workArea.add("ViewPatientHistory", new ViewPatientHistory());
+        layout.next(workArea);
+    }//GEN-LAST:event_btnPatientHistoryActionPerformed
+
+    private void btnReminderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReminderActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        workArea.add("ViewReminder", new ViewReminder());
+        layout.next(workArea);
+    }//GEN-LAST:event_btnReminderActionPerformed
+
+    private void btnViewReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewReportActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewReportActionPerformed
+
+    private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        workArea.add("CreateFeedbackForm", new CreateFeedbackForm());
+        layout.next(workArea);
+    }//GEN-LAST:event_btnFeedbackActionPerformed
+
+    private void btnFamilyDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFamilyDetailActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        workArea.add("ViewPatientFamilyDetails", new ViewPatientFamilyDetails());
+        layout.next(workArea);
+    }//GEN-LAST:event_btnFamilyDetailActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

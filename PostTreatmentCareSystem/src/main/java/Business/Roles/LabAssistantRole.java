@@ -8,6 +8,6 @@ package Business.Roles;
  *
  * @author samik
  */
-public class LabAssistantRole {
+public class LabAssistantRole extends Person {
     
 }
