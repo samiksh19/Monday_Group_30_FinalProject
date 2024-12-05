@@ -4,10 +4,12 @@
  */
 package Business.Roles;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author samik
  */
-public class CaregiverRole {
-    
+public class CaregiverRole extends Person{
+    private int patientId ;
 }
