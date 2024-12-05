@@ -13,7 +13,8 @@ import Business.WorkQueue.WorkQueue;
  * @author samik
  */
 public class UserAccount {
-     private String uname;
+
+    private String uname;
     private String password;
     private Person person;
     private Role role;

@@ -4,6 +4,12 @@
  */
 package ui.Patient;
 
+import Business.Organization.Organization;
+import Business.Roles.PatientRole;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author samik
@@ -13,10 +19,31 @@ public class ViewPatientHistory extends javax.swing.JPanel {
     /**
      * Creates new form ViewPatientHistory
      */
-    public ViewPatientHistory() {
+    
+    private final JPanel workContainer;
+    private final UserAccount userAccount;
+    DefaultTableModel tblmodel;
+    
+    public ViewPatientHistory(JPanel workContainer, UserAccount userAccount) {
         initComponents();
+        this.workContainer = workContainer;
+        this.userAccount = userAccount;
+        populatePatientTable();
     }
 
+     private void populatePatientTable()
+    {
+        
+        int rowCount = tblPatientHistory.getRowCount();
+        tblmodel = (DefaultTableModel)tblPatientHistory.getModel();
+        
+        for(int i=rowCount-1 ; i>=0; i--){
+            tblmodel.removeRow(i);
+        }
+        
+        //PatientRole patient = (PatientRole)userAccount.getPerson();
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
