@@ -29,7 +29,7 @@ public class ViewPatientHistory extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblPatientHistory = new javax.swing.JTable();
 
         btnBack.setText(">>>Back");
 
@@ -37,7 +37,7 @@ public class ViewPatientHistory extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("VIEW PATIENT HISTORY");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblPatientHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -56,11 +56,11 @@ public class ViewPatientHistory extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
+        jScrollPane1.setViewportView(tblPatientHistory);
+        if (tblPatientHistory.getColumnModel().getColumnCount() > 0) {
+            tblPatientHistory.getColumnModel().getColumn(0).setResizable(false);
+            tblPatientHistory.getColumnModel().getColumn(1).setResizable(false);
+            tblPatientHistory.getColumnModel().getColumn(2).setResizable(false);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -96,6 +96,6 @@ public class ViewPatientHistory extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblPatientHistory;
     // End of variables declaration//GEN-END:variables
 }
