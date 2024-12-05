@@ -4,6 +4,7 @@
  */
 package Business.Roles;
 
+import Business.insurance.Insurance;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +19,15 @@ public class PatientRole extends Person {
     private String department;
     private String diesease;
     private String status;
+    private ArrayList<Insurance> insurance;
+
+    public ArrayList<Insurance> getInsurance() {
+        return insurance;
+    }
+
+    public void setInsurance(ArrayList<Insurance> insurance) {
+        this.insurance = insurance;
+    }
 
     public String getDepartment() {
         return department;
