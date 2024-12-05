@@ -8,6 +8,10 @@ package Business.Enterprise;
  *
  * @author samik
  */
-public class ClinicalSupportEnterprise {
+public class ClinicalSupportEnterprise extends Enterprise{
+    
+    public ClinicalSupportEnterprise(String name) {    
+        super(name, Enterprise.EnterpriseType.ClinicalSupport);
+    }
     
 }

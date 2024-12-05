@@ -4,6 +4,7 @@
  */
 package ui.Patient;
 
+import Business.Enterprise.ClinicalSupportEnterprise;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.HospitalEnterprise;
 import Business.UserAccount.UserAccount;
@@ -205,7 +206,7 @@ public class MainDashboard extends javax.swing.JPanel {
     private void btnFamilyDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFamilyDetailActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout) workArea.getLayout();
-        workArea.add("ViewPatientFamilyDetails", new ViewPatientFamilyDetails());
+        workArea.add("ViewPatientFamilyDetails", new ViewPatientFamilyDetails(workArea, userAccount, (ClinicalSupportEnterprise)enterprise));
         layout.next(workArea);
     }//GEN-LAST:event_btnFamilyDetailActionPerformed
 

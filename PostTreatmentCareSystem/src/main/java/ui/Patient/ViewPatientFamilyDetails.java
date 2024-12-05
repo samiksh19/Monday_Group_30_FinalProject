@@ -4,6 +4,12 @@
  */
 package ui.Patient;
 
+import Business.Enterprise.ClinicalSupportEnterprise;
+import Business.Enterprise.HospitalEnterprise;
+import Business.Roles.CaregiverRole;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author samik
@@ -13,9 +19,24 @@ public class ViewPatientFamilyDetails extends javax.swing.JPanel {
     /**
      * Creates new form ViewPatientFamilyDetails
      */
-    public ViewPatientFamilyDetails() {
+      private final JPanel workContainer;
+    private final ClinicalSupportEnterprise enterprise;
+    public ViewPatientFamilyDetails(JPanel workContainer, UserAccount userAccount, ClinicalSupportEnterprise enterprise) {
         initComponents();
+        this.workContainer = workContainer;
+        this.userAccount = userAccount;
+        this.enterprise = enterprise;
+        CaregiverRole p = (CaregiverRole)userAccount.getPerson();
+        
+        txtFamName.setText(p.getName());
+        txtFamContact.setText(p.getContact_number());
+        txtFamRelationship.setText(p.getRelationship());
+        txtFamAddr.setText(p.getAddress());
+        txtFamGender.setText(p.getGender());
+        txtFamBloodGrp.setText(p.getBloodgroup());
+        txtFamEmail.setText(p.getEmail_address());
     }
+    private final UserAccount userAccount;
 
     /**
      * This method is called from within the constructor to initialize the form.
