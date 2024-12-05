@@ -14,6 +14,42 @@ public class PatientRole extends Person {
 
     private int id;
     private int nurseId;
+    private int caseId;
+    private String department;
+    private String diesease;
+    private String status;
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getDiesease() {
+        return diesease;
+    }
+
+    public void setDiesease(String diesease) {
+        this.diesease = diesease;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
+    public int getCaseId() {
+        return caseId;
+    }
+
+    public void setCaseId(int caseId) {
+        this.caseId = caseId;
+    }
     
     public int getId() {
         return id;

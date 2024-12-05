@@ -8,6 +8,9 @@ package Business.Enterprise;
  *
  * @author samik
  */
-public class HospitalEnterprise {
+public class HospitalEnterprise extends Enterprise{
     
+    public HospitalEnterprise(String name) {    
+        super(name, Enterprise.EnterpriseType.Hospital);
+    }
 }

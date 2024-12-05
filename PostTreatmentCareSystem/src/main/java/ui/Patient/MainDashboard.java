@@ -4,6 +4,9 @@
  */
 package ui.Patient;
 
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.HospitalEnterprise;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -17,9 +20,14 @@ public class MainDashboard extends javax.swing.JPanel {
      * Creates new form MainDashboard
      */
     private JPanel workArea;
+    private UserAccount userAccount;
+    private final Enterprise enterprise;
     
-    public MainDashboard(JPanel workArea) {
+    public MainDashboard(JPanel workArea, UserAccount userAccount, Enterprise enterprise) {
         initComponents();
+        this.workArea = workArea;
+        this.enterprise = enterprise;
+        this.userAccount = userAccount;
     }
 
     /**
@@ -58,7 +66,7 @@ public class MainDashboard extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 539, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 479, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(77, 77, 77))
         );
@@ -69,7 +77,7 @@ public class MainDashboard extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogout))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSplitPane1.setTopComponent(jPanel1);
@@ -139,7 +147,7 @@ public class MainDashboard extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnViewReport, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                     .addComponent(btnInsurancePlan, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +157,7 @@ public class MainDashboard extends javax.swing.JPanel {
                     .addComponent(btnPatientHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReminder, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnViewReport, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnFamilyDetail, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                     .addComponent(btnInsurancePlan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -172,7 +180,7 @@ public class MainDashboard extends javax.swing.JPanel {
     private void btnPatientHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientHistoryActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout) workArea.getLayout();
-        workArea.add("ViewPatientHistory", new ViewPatientHistory());
+        workArea.add("ViewPatientHistory", new ViewPatientHistory(workArea, userAccount, (HospitalEnterprise)enterprise));
         layout.next(workArea);
     }//GEN-LAST:event_btnPatientHistoryActionPerformed
 
