@@ -4,6 +4,8 @@
  */
 package Business;
 
+import Business.Roles.AdminRole;
+import Business.Roles.Person;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -11,10 +13,12 @@ import Business.UserAccount.UserAccount;
  * @author samik
  */
 public class ConfigureASystem {
+    public static Business configure(){
     Business business = Business.getInstance();
         Person person = null;
         //Creating sysadmin user account
-        UserAccount sysAdmin = business.getUserAccountDirectory().createUserAccount("dsadmin", "dsadmin", person, new SystemAdminRole());       
+        UserAccount sysAdmin = business.getUserAccountDirectory().createUserAccount("dsadmin", "dsadmin", person, new AdminRole());       
         return business;
+        }
     
 }

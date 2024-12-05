@@ -4,15 +4,24 @@
  */
 package Business.Organization;
 
+import Business.Roles.Role;
 import Business.UserAccount.UserAccountDirectory;
+import java.util.ArrayList;
 
 /**
  *
  * @author samik
  */
-public class Organization {
+public abstract class Organization {
+     private String name;
     private UserAccountDirectory userAccountDirectory;
-
+    public Organization(String name) {
+        this.name = name;
+        
+        userAccountDirectory = new UserAccountDirectory();
+        
+    }
+ 
     public UserAccountDirectory getUserAccountDirectory() {
         return userAccountDirectory;
     }
