@@ -4,6 +4,8 @@
  */
 package ui.Patient;
 
+import Business.Enterprise.HospitalEnterprise;
+import Business.Organization.HospitalOrganization;
 import Business.Organization.Organization;
 import Business.Roles.PatientRole;
 import Business.UserAccount.UserAccount;
@@ -21,19 +23,20 @@ public class ViewPatientHistory extends javax.swing.JPanel {
      */
     
     private final JPanel workContainer;
+    private final HospitalEnterprise enterprise;
     private final UserAccount userAccount;
     DefaultTableModel tblmodel;
     
-    public ViewPatientHistory(JPanel workContainer, UserAccount userAccount) {
+    public ViewPatientHistory(JPanel workContainer, UserAccount userAccount, HospitalEnterprise enterprise) {
         initComponents();
         this.workContainer = workContainer;
         this.userAccount = userAccount;
+        this.enterprise = enterprise;
         populatePatientTable();
     }
 
      private void populatePatientTable()
     {
-        
         int rowCount = tblPatientHistory.getRowCount();
         tblmodel = (DefaultTableModel)tblPatientHistory.getModel();
         
@@ -41,9 +44,26 @@ public class ViewPatientHistory extends javax.swing.JPanel {
             tblmodel.removeRow(i);
         }
         
-        //PatientRole patient = (PatientRole)userAccount.getPerson();
+        PatientRole p = (PatientRole)userAccount.getPerson();
         
+        
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
+            if (organization instanceof HospitalOrganization hospitalOrg){
+                for (PatientRole patient : hospitalOrg.getDoctor().getPatientList())
+                {
+                    if (patient.getfName().equals(p.getfName()))
+                    {
+                        Object[] rowData = new Object[4];
+                        rowData[0] = patient.getCaseId();
+                        rowData[1] = patient.getDepartment();
+                        rowData[2] = patient.getDiesease();
+                        rowData[3] = patient.getStatus();
+                    }
+                }
+            }
+        }
     }
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -4,6 +4,8 @@
  */
 package ui.Patient;
 
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.HospitalEnterprise;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -19,9 +21,13 @@ public class MainDashboard extends javax.swing.JPanel {
      */
     private JPanel workArea;
     private UserAccount userAccount;
+    private final Enterprise enterprise;
     
-    public MainDashboard(JPanel workArea, UserAccount userAccount) {
+    public MainDashboard(JPanel workArea, UserAccount userAccount, Enterprise enterprise) {
         initComponents();
+        this.workArea = workArea;
+        this.enterprise = enterprise;
+        this.userAccount = userAccount;
     }
 
     /**
@@ -174,7 +180,7 @@ public class MainDashboard extends javax.swing.JPanel {
     private void btnPatientHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientHistoryActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout) workArea.getLayout();
-        workArea.add("ViewPatientHistory", new ViewPatientHistory(workArea, userAccount));
+        workArea.add("ViewPatientHistory", new ViewPatientHistory(workArea, userAccount, (HospitalEnterprise)enterprise));
         layout.next(workArea);
     }//GEN-LAST:event_btnPatientHistoryActionPerformed
 

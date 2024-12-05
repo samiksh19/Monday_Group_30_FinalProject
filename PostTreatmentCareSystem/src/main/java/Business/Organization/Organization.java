@@ -13,15 +13,15 @@ import java.util.ArrayList;
  * @author samik
  */
 public abstract class Organization {
-     private String name;
+
+    private String name;
     private UserAccountDirectory userAccountDirectory;
+
     public Organization(String name) {
         this.name = name;
-        
         userAccountDirectory = new UserAccountDirectory();
-        
     }
- 
+
     public UserAccountDirectory getUserAccountDirectory() {
         return userAccountDirectory;
     }
@@ -29,5 +29,23 @@ public abstract class Organization {
     public void setUserAccountDirectory(UserAccountDirectory userAccountDirectory) {
         this.userAccountDirectory = userAccountDirectory;
     }
-    
+
+    public enum OrganizationType {
+        AdminOrg("Admin Organization"),
+        ClinicalSupportOrg("Clinical Support Organization"),
+        NursingOrg("Nursing Organization"),
+        PatientSupportOrg("Patient Support Organization"),
+        HospitalOrg("Hospital Organization"),
+        PharmacyOrg("Medical Organization");
+
+        private String value;
+
+        private OrganizationType(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
 }
