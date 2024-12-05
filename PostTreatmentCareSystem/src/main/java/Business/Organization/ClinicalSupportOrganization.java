@@ -4,10 +4,26 @@
  */
 package Business.Organization;
 
+import Business.Roles.CaregiverRole;
+
 /**
  *
  * @author samik
  */
-public class ClinicalSupportOrganization {
+public class ClinicalSupportOrganization extends Organization {
     
+    private CaregiverRole caregiver;
+
+    public CaregiverRole getCaregiver() {
+        return caregiver;
+    }
+
+    public void setCaregiver(CaregiverRole caregiver) {
+        this.caregiver = caregiver;
+    }
+    public ClinicalSupportOrganization() {
+        
+        super(Organization.OrganizationType.ClinicalSupportOrg.getValue());
+     }
+     
 }
