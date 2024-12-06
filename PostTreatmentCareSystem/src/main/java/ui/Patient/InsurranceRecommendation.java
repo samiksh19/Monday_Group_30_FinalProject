@@ -4,6 +4,16 @@
  */
 package ui.Patient;
 
+import Business.Enterprise.HospitalEnterprise;
+import Business.Organization.HospitalOrganization;
+import Business.Organization.Organization;
+import Business.Roles.PatientRole;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author dalea
@@ -13,8 +23,46 @@ public class InsurranceRecommendation extends javax.swing.JPanel {
     /**
      * Creates new form InsurranceRecommendation
      */
-    public InsurranceRecommendation() {
+        private final JPanel workContainer;
+    private final HospitalEnterprise enterprise;
+    private final UserAccount userAccount;
+    DefaultTableModel tblmodel;
+    public InsurranceRecommendation(JPanel workContainer, UserAccount userAccount, HospitalEnterprise enterprise) {
         initComponents();
+          this.workContainer = workContainer;
+        this.userAccount = userAccount;
+        this.enterprise = enterprise;
+        populateInsuranceTable();
+        //commenting for time being
+        //PatientRole p = (PatientRole)userAccount.getPerson();
+       // txtPid.setText(String.valueOf(p.getCaseId()));
+    }
+     private void populateInsuranceTable()
+    {
+        int rowCount = tblInsurancePlan.getRowCount();
+        tblmodel = (DefaultTableModel)tblInsurancePlan.getModel();
+        
+        for(int i=rowCount-1 ; i>=0; i--){
+            tblmodel.removeRow(i);
+        }
+        
+        PatientRole p = (PatientRole)userAccount.getPerson();
+                
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
+            if (organization instanceof HospitalOrganization hospitalOrg){
+                for (PatientRole patient : hospitalOrg.getDoctor().getPatientList())
+                {
+                    if (patient.getfName().equals(p.getfName()))
+                    {
+                        Object[] rowData = new Object[4];
+                        rowData[0] = patient.getInsurance().getPlan();
+                        rowData[1] = patient.getInsurance().getCoverage();
+                        rowData[2] = patient.getInsurance().getPlan_type();
+                        
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -34,13 +82,19 @@ public class InsurranceRecommendation extends javax.swing.JPanel {
         tblInsurancePlan = new javax.swing.JTable();
         btnViewDetails = new javax.swing.JButton();
         btnApply1 = new javax.swing.JButton();
+        txtPid = new javax.swing.JTextField();
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Insurance Recommendation");
 
         btnBack.setText("<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("Insurance Plans");
+        jLabel1.setText("Insurance Plans for");
 
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +157,10 @@ public class InsurranceRecommendation extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(30, 30, 30)
+                                .addComponent(txtPid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(btnRefresh)
@@ -123,13 +180,15 @@ public class InsurranceRecommendation extends javax.swing.JPanel {
                 .addComponent(btnBack)
                 .addGap(18, 18, 18)
                 .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jLabel1)
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtPid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnRefresh)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(btnViewDetails)
                 .addGap(28, 28, 28))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +200,7 @@ public class InsurranceRecommendation extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
-
+        populateInsuranceTable();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
@@ -150,7 +209,15 @@ public class InsurranceRecommendation extends javax.swing.JPanel {
 
     private void btnApply1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApply1ActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this," Person Successfully enrolled for insurance","Success",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnApply1ActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+                workContainer.remove(this);
+        CardLayout layout = (CardLayout) workContainer.getLayout();
+        layout.previous(workContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -162,5 +229,6 @@ public class InsurranceRecommendation extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblInsurancePlan;
+    private javax.swing.JTextField txtPid;
     // End of variables declaration//GEN-END:variables
 }
