@@ -24,7 +24,6 @@ public class UserAccount {
         workQueue = new WorkQueue();
     }
     
-    
     //getters ans setters for the above variables
     
     public String getUsername() {
@@ -63,8 +62,6 @@ public class UserAccount {
         return workQueue;
     }
 
-    
-    
     @Override
     public String toString() {
         return uname;

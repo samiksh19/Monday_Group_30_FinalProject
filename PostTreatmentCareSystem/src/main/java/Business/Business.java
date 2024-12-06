@@ -4,8 +4,11 @@
  */
 package Business;
 
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.EnterpriseDirectory;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.Organization.OrganizationDirectory;
 import Business.Roles.Role;
 import Business.Roles.AdminRole;
 import java.util.ArrayList;
@@ -19,6 +22,9 @@ public class Business extends Organization{
     
     private static Business business;
     private ArrayList<Network> networkList;
+    private EnterpriseDirectory enterpriseDirectory;
+    private Enterprise enterprise;
+    private OrganizationDirectory organizationDirectory;
     
     public static Business getInstance(){
         if(business==null){
@@ -29,6 +35,8 @@ public class Business extends Organization{
 
     public Business() {
         super(null);
+        enterpriseDirectory = new EnterpriseDirectory();
+        organizationDirectory = new OrganizationDirectory();
     }
     public Network createAndAddNetwork(){
         Network network=new Network();
@@ -52,7 +60,17 @@ public class Business extends Organization{
 
     public void setNetworkList(ArrayList<Network> networkList) {
         this.networkList = networkList;
+    }   
+    
+    public EnterpriseDirectory getEnterpriseDirectory() {
+        return enterpriseDirectory;
     }
     
+    public OrganizationDirectory getOrganizationDirectory() {
+        return organizationDirectory;
+    }
     
+    public Enterprise getEnterprise() {
+        return enterprise;
+    }
 }

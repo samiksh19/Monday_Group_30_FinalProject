@@ -29,4 +29,14 @@ public class UserAccountDirectory {
         userAccountList.add(uA);
         return uA;
     }
+     
+    public UserAccount authenticateUser(String username, String password){
+        for (UserAccount ua : userAccountList)
+            if (ua.getUsername().equals(username) && ua.getPassword().equals(password)){
+                System.out.println("User account found");
+                return ua;
+            }
+        System.out.println("User account NULL");
+        return null;
+    }
 }

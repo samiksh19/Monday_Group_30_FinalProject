@@ -15,6 +15,7 @@ import Business.UserAccount.UserAccount;
 public class ConfigureASystem {
     public static Business configure(){
     Business business = Business.getInstance();
+    
         Person person = null;
         //Creating sysadmin user account
         UserAccount sysAdmin = business.getUserAccountDirectory().createUserAccount("dsadmin", "dsadmin", person, new AdminRole());       

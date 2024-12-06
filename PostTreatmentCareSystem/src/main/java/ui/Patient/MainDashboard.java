@@ -22,9 +22,9 @@ public class MainDashboard extends javax.swing.JPanel {
      */
     private JPanel workArea;
     private UserAccount userAccount;
-    private final Enterprise enterprise;
+    private final HospitalEnterprise enterprise;
     
-    public MainDashboard(JPanel workArea, UserAccount userAccount, Enterprise enterprise) {
+    public MainDashboard(JPanel workArea, UserAccount userAccount, HospitalEnterprise enterprise) {
         initComponents();
         this.workArea = workArea;
         this.enterprise = enterprise;
@@ -180,15 +180,17 @@ public class MainDashboard extends javax.swing.JPanel {
 
     private void btnPatientHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientHistoryActionPerformed
         // TODO add your handling code here:
+        
+        ViewPatientHistory panel = new ViewPatientHistory(workArea, userAccount, enterprise);
+        workArea.add("ViewPatientHistory", panel);
         CardLayout layout = (CardLayout) workArea.getLayout();
-        workArea.add("ViewPatientHistory", new ViewPatientHistory(workArea, userAccount, (HospitalEnterprise)enterprise));
         layout.next(workArea);
     }//GEN-LAST:event_btnPatientHistoryActionPerformed
 
     private void btnReminderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReminderActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout) workArea.getLayout();
-        workArea.add("ViewReminder", new ViewReminder());
+        workArea.add("ViewReminder", new ViewReminder(workArea));
         layout.next(workArea);
     }//GEN-LAST:event_btnReminderActionPerformed
 
@@ -199,8 +201,9 @@ public class MainDashboard extends javax.swing.JPanel {
     private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout) workArea.getLayout();
-        workArea.add("CreateFeedbackForm", new CreateFeedbackForm());
+        workArea.add("CreateFeedbackForm", new CreateFeedbackForm(workArea));
         layout.next(workArea);
+               
     }//GEN-LAST:event_btnFeedbackActionPerformed
 
     private void btnFamilyDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFamilyDetailActionPerformed

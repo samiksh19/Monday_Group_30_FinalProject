@@ -12,7 +12,7 @@ import Business.Organization.OrganizationDirectory;
  *
  * @author samik
  */
-public abstract class Enterprise extends Organization {
+public class Enterprise extends Organization {
     private String enterpriseName;
     private EnterpriseType enterpriseType;
     private OrganizationDirectory organizationDirectory;

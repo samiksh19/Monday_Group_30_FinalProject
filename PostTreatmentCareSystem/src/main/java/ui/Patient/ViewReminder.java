@@ -4,17 +4,22 @@
  */
 package ui.Patient;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author dalea
  */
 public class ViewReminder extends javax.swing.JPanel {
 
+    private final JPanel workContainer;
     /**
      * Creates new form ViewReminder
      */
-    public ViewReminder() {
+    public ViewReminder(JPanel workContainer) {
         initComponents();
+        this.workContainer = workContainer;
     }
 
     /**
@@ -36,6 +41,11 @@ public class ViewReminder extends javax.swing.JPanel {
         enterpriseLabel.setText("Patient Reminder");
 
         btnBack.setText("<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         tblPatientReminder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,6 +119,12 @@ public class ViewReminder extends javax.swing.JPanel {
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
        
     }//GEN-LAST:event_btnRefreshActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here: 
+        CardLayout layout = (CardLayout) workContainer.getLayout();
+        layout.previous(workContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,17 +4,22 @@
  */
 package ui.Patient;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author samik
  */
 public class CreateFeedbackForm extends javax.swing.JFrame {
 
+    private final JPanel workContainer;
     /**
      * Creates new form CreateFeedbackForm
      */
-    public CreateFeedbackForm() {
+    public CreateFeedbackForm(JPanel workContainer) {
         initComponents();
+        this.workContainer = workContainer;
     }
 
     /**
@@ -41,6 +46,11 @@ public class CreateFeedbackForm extends javax.swing.JFrame {
         lblTitle.setText("FEEDBACK FORM");
 
         btnBack.setText(">>> Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel1.setText("You can send a message to your Nurse for any concerns....");
@@ -102,6 +112,12 @@ public class CreateFeedbackForm extends javax.swing.JFrame {
     private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSendActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:workContainer.remove(this);
+        CardLayout layout = (CardLayout) workContainer.getLayout();
+        layout.previous(workContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments

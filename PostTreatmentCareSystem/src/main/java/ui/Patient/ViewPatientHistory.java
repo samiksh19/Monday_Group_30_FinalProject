@@ -9,6 +9,7 @@ import Business.Organization.HospitalOrganization;
 import Business.Organization.Organization;
 import Business.Roles.PatientRole;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -45,8 +46,7 @@ public class ViewPatientHistory extends javax.swing.JPanel {
         }
         
         PatientRole p = (PatientRole)userAccount.getPerson();
-        
-        
+                
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
             if (organization instanceof HospitalOrganization hospitalOrg){
                 for (PatientRole patient : hospitalOrg.getDoctor().getPatientList())
@@ -79,6 +79,11 @@ public class ViewPatientHistory extends javax.swing.JPanel {
         tblPatientHistory = new javax.swing.JTable();
 
         btnBack.setText(">>>Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -137,6 +142,13 @@ public class ViewPatientHistory extends javax.swing.JPanel {
                 .addContainerGap(51, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        workContainer.remove(this);
+        CardLayout layout = (CardLayout) workContainer.getLayout();
+        layout.previous(workContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
