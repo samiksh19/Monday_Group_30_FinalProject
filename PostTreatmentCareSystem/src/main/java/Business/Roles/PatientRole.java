@@ -19,16 +19,17 @@ public class PatientRole extends Person {
     private String department;
     private String diesease;
     private String status;
-    private ArrayList<Insurance> insurance;
+    private Insurance insurance;
 
-    public ArrayList<Insurance> getInsurance() {
+    public Insurance getInsurance() {
         return insurance;
     }
 
-    public void setInsurance(ArrayList<Insurance> insurance) {
+    public void setInsurance(Insurance insurance) {
         this.insurance = insurance;
     }
 
+   
     public String getDepartment() {
         return department;
     }

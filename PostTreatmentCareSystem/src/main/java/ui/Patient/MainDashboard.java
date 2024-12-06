@@ -173,9 +173,11 @@ public class MainDashboard extends javax.swing.JPanel {
 
     private void btnInsurancePlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsurancePlanActionPerformed
         // TODO add your handling code here:
+        InsurranceRecommendation panel = new InsurranceRecommendation(workArea, userAccount, (HospitalEnterprise)enterprise);
+        workArea.add("InsurranceRecommendation",panel);
+
         CardLayout layout = (CardLayout) workArea.getLayout();
-        workArea.add("InsurranceRecommendation", new InsurranceRecommendation());
-        layout.next(workArea);  
+                layout.next(workArea);  
     }//GEN-LAST:event_btnInsurancePlanActionPerformed
 
     private void btnPatientHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientHistoryActionPerformed
