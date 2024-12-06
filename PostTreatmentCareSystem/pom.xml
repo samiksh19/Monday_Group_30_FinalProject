@@ -5,11 +5,31 @@
     <artifactId>PostTreatmentCareSystem</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+  
+    <name>PostTreatmentCareSystem</name>
+    <dependencies>
+        <dependency>
+            <groupId>io.github.nilshoffmann</groupId>
+            <artifactId>db4o-nbm</artifactId>
+            <version>2.0.0</version>
+            <type>nbm</type>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE220</version>
+        </dependency>
+        <dependency>
+            <groupId>com.db4o</groupId>
+            <artifactId>db4o-all</artifactId>
+            <version>8.0.249</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>19</maven.compiler.source>
-        <maven.compiler.target>19</maven.compiler.target>
-        <exec.mainClass>com.mycompany.posttreatmentsystem.PostTreatmentSystem</exec.mainClass>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <exec.mainClass>ui.MainJFrame</exec.mainClass>
     </properties>
-    <name>PostTreatmentCareSystem</name>
 </project>
