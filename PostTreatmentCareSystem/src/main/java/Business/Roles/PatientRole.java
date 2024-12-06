@@ -4,6 +4,7 @@
  */
 package Business.Roles;
 
+import Business.Patient.Reminder;
 import Business.insurance.Insurance;
 import java.util.ArrayList;
 
@@ -20,6 +21,15 @@ public class PatientRole extends Person {
     private String diesease;
     private String status;
     private Insurance insurance;
+    private Reminder reminder;
+
+    public Reminder getReminder() {
+        return reminder;
+    }
+
+    public void setReminder(Reminder reminder) {
+        this.reminder = reminder;
+    }
 
     public Insurance getInsurance() {
         return insurance;

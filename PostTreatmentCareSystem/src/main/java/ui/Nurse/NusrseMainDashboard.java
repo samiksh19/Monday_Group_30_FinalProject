@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.Patient;
+package ui.Nurse;
 
+import ui.Patient.*;
 import Business.Enterprise.ClinicalSupportEnterprise;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.HospitalEnterprise;
@@ -15,7 +16,7 @@ import javax.swing.JPanel;
  *
  * @author samik
  */
-public class MainDashboard extends javax.swing.JPanel {
+public class NusrseMainDashboard extends javax.swing.JPanel {
 
     /**
      * Creates new form MainDashboard
@@ -24,7 +25,7 @@ public class MainDashboard extends javax.swing.JPanel {
     private UserAccount userAccount;
     private final Enterprise enterprise;
     
-    public MainDashboard(JPanel workArea, UserAccount userAccount, Enterprise enterprise) {
+    public NusrseMainDashboard(JPanel workArea, UserAccount userAccount, Enterprise enterprise) {
         initComponents();
         this.workArea = workArea;
         this.enterprise = enterprise;
@@ -84,7 +85,7 @@ public class MainDashboard extends javax.swing.JPanel {
         jSplitPane1.setTopComponent(jPanel1);
 
         btnReminder.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnReminder.setText("View Reminders");
+        btnReminder.setText("View Critical Patients");
         btnReminder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReminderActionPerformed(evt);
@@ -100,7 +101,7 @@ public class MainDashboard extends javax.swing.JPanel {
         });
 
         btnViewReport.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnViewReport.setText("View Report");
+        btnViewReport.setText("Send Reminder");
         btnViewReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewReportActionPerformed(evt);
@@ -124,7 +125,7 @@ public class MainDashboard extends javax.swing.JPanel {
         });
 
         btnPatientHistory.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnPatientHistory.setText("View Patient History");
+        btnPatientHistory.setText("View Patients ");
         btnPatientHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPatientHistoryActionPerformed(evt);
@@ -148,7 +149,7 @@ public class MainDashboard extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnViewReport, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                     .addComponent(btnInsurancePlan, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
