@@ -29,6 +29,7 @@ public class MainDashboard extends javax.swing.JPanel {
         this.workArea = workArea;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
+        lblValue.setText(userAccount.getUsername());
     }
 
     /**
@@ -44,6 +45,7 @@ public class MainDashboard extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
+        lblValue = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnReminder = new javax.swing.JButton();
         btnFeedback = new javax.swing.JButton();
@@ -66,8 +68,10 @@ public class MainDashboard extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 479, Short.MAX_VALUE)
+                .addComponent(lblTitle)
+                .addGap(30, 30, 30)
+                .addComponent(lblValue, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 457, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(77, 77, 77))
         );
@@ -77,7 +81,8 @@ public class MainDashboard extends javax.swing.JPanel {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogout))
+                    .addComponent(btnLogout)
+                    .addComponent(lblValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -202,10 +207,10 @@ public class MainDashboard extends javax.swing.JPanel {
 
     private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
         // TODO add your handling code here:
+        CreateFeedbackFormJPanel panel = new CreateFeedbackFormJPanel(workArea, userAccount, enterprise);
+        workArea.add("CreateFeedbackFormJPanel", panel);
         CardLayout layout = (CardLayout) workArea.getLayout();
-        workArea.add("CreateFeedbackForm", new CreateFeedbackForm(workArea));
         layout.next(workArea);
-               
     }//GEN-LAST:event_btnFeedbackActionPerformed
 
     private void btnFamilyDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFamilyDetailActionPerformed
@@ -228,5 +233,6 @@ public class MainDashboard extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblValue;
     // End of variables declaration//GEN-END:variables
 }

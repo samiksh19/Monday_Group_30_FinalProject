@@ -5,6 +5,7 @@
 package Business.Organization;
 
 import Business.Roles.DoctorRole;
+import Business.Roles.Role;
 import java.util.ArrayList;
 
 /**
@@ -21,6 +22,5 @@ public class HospitalOrganization extends Organization{
      
      public DoctorRole getDoctor() {
         return getDoctor;
-    }
-     
+    }  
 }
