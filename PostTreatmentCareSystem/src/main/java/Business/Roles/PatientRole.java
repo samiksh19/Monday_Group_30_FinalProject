@@ -4,6 +4,7 @@
  */
 package Business.Roles;
 
+import Business.Patient.HealthMetrics;
 import Business.Patient.Reminder;
 import Business.insurance.Insurance;
 import java.util.ArrayList;
@@ -22,6 +23,15 @@ public class PatientRole extends Person {
     private String status;
     private Insurance insurance;
     private Reminder reminder;
+    private HealthMetrics healthmetrics;
+
+    public HealthMetrics getHealthmetrics() {
+        return healthmetrics;
+    }
+
+    public void setHealthmetrics(HealthMetrics healthmetrics) {
+        this.healthmetrics = healthmetrics;
+    }
 
     public Reminder getReminder() {
         return reminder;
