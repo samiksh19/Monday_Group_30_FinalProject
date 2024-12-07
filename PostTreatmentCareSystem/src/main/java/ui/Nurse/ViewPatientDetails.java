@@ -4,6 +4,10 @@
  */
 package ui.Nurse;
 
+import Business.Roles.PatientRole;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author prach
@@ -16,7 +20,39 @@ public class ViewPatientDetails extends javax.swing.JPanel {
     public ViewPatientDetails() {
         initComponents();
     }
+private void initializeTable() {
 
+        //clear supplier table
+        cleanUpCombobox();
+        cleanUpTable();
+
+        //load suppliers to the combobox
+        ArrayList<PatientRole> supplierlist = business.getSupplierDirectory().getSuplierList();
+
+        if (supplierlist.isEmpty()) {
+            return;
+        }
+
+        for (Supplier s : supplierlist) {
+
+            SuppliersComboBox.addItem(s.toString());
+            SuppliersComboBox.setSelectedIndex(0);
+            String suppliername = (String) SuppliersComboBox.getSelectedItem();
+            selectedsupplier = business.getSupplierDirectory().findSupplier(suppliername);
+            ProductCatalog pc = selectedsupplier.getProductCatalog();
+            for (Product pt : pc.getProductList()) {
+
+                Object[] row = new Object[5];
+                row[0] = pt;
+                row[1] = pt.getFloorPrice();
+                row[2] = pt.getCeilingPrice();
+                row[3] = pt.getTargetPrice();
+
+                ((DefaultTableModel) SupplierCatalogTable.getModel()).addRow(row);
+            }
+
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,7 +68,10 @@ public class ViewPatientDetails extends javax.swing.JPanel {
         lblPatient = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         PatientHistoryTable = new javax.swing.JTable();
-        addToCartBtn = new javax.swing.JButton();
+        ChangeStatusBtn = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        OrderItemsTable = new javax.swing.JTable();
+        lblOrderItems = new javax.swing.JLabel();
 
         lblSuppliers.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
         lblSuppliers.setForeground(new java.awt.Color(51, 51, 51));
@@ -53,17 +92,17 @@ public class ViewPatientDetails extends javax.swing.JPanel {
 
         PatientHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Name", "Floor", "Ceiling", "Target"
+                "Patient Name", "BloodPressure", "Oxygen", "Heart_Rate", "Temperature"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -80,15 +119,45 @@ public class ViewPatientDetails extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(PatientHistoryTable);
 
-        addToCartBtn.setBackground(new java.awt.Color(255, 102, 102));
-        addToCartBtn.setFont(new java.awt.Font("Constantia", 1, 14)); // NOI18N
-        addToCartBtn.setForeground(new java.awt.Color(255, 255, 255));
-        addToCartBtn.setText("Change Status ");
-        addToCartBtn.addActionListener(new java.awt.event.ActionListener() {
+        ChangeStatusBtn.setBackground(new java.awt.Color(255, 102, 102));
+        ChangeStatusBtn.setFont(new java.awt.Font("Constantia", 1, 14)); // NOI18N
+        ChangeStatusBtn.setForeground(new java.awt.Color(255, 255, 255));
+        ChangeStatusBtn.setText("Change Status ");
+        ChangeStatusBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addToCartBtnAddProductItemActionPerformed(evt);
+                ChangeStatusBtnAddProductItemActionPerformed(evt);
             }
         });
+
+        OrderItemsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "PatientID", "Name", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        OrderItemsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                OrderItemsTableMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                OrderItemsTableMousePressed(evt);
+            }
+        });
+        jScrollPane4.setViewportView(OrderItemsTable);
+
+        lblOrderItems.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
+        lblOrderItems.setForeground(new java.awt.Color(51, 51, 51));
+        lblOrderItems.setText("Patient Current Status");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -104,15 +173,18 @@ public class ViewPatientDetails extends javax.swing.JPanel {
                     .addComponent(lblPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(addToCartBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(245, 245, 245)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblOrderItems, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ChangeStatusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(19, 19, 19)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(229, 229, 229)))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -127,10 +199,14 @@ public class ViewPatientDetails extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addComponent(lblPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(ChangeStatusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(lblOrderItems, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addToCartBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(163, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -145,28 +221,28 @@ public class ViewPatientDetails extends javax.swing.JPanel {
 
     private void PatientHistoryTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PatientHistoryTableMousePressed
         // TODO add your handling code here:
-//        int suppliertablesize = PatientHistoryTable.getRowCount();
-//        int selectedrow = PatientHistoryTable.getSelectionModel().getLeadSelectionIndex();
-//
-//        if (selectedrow < 0 || selectedrow > suppliertablesize - 1) {
-//            return;
-//        }
-//        selectedproduct = (Product) PatientHistoryTable.getValueAt(selectedrow, 0);
-//        if (selectedproduct == null) {
-//            return;
-//        }
-//
-//        ProductSummary productsummary = new ProductSummary(selectedproduct);
-//
-//        productNameTextField.setText(selectedproduct.toString());
-//        String revenues = String.valueOf(productsummary.getSalesRevenues());
-//        productRevenueTextField.setText(revenues);
-//        productFrequencyAboveTargetTextField.setText(String.valueOf(productsummary.getNumberAboveTarget()));
-//        productFrequencyBelowTargetTextField.setText(String.valueOf(productsummary.getNumberBelowTarget()));
-//        productPricePerformanceTextField.setText(String.valueOf(productsummary.getProductPricePerformance()));
+        int suppliertablesize = PatientHistoryTable.getRowCount();
+        int selectedrow = PatientHistoryTable.getSelectionModel().getLeadSelectionIndex();
+
+        if (selectedrow < 0 || selectedrow > suppliertablesize - 1) {
+            return;
+        }
+        selectedproduct = (Product) PatientHistoryTable.getValueAt(selectedrow, 0);
+        if (selectedproduct == null) {
+            return;
+        }
+
+        ProductSummary productsummary = new ProductSummary(selectedproduct);
+
+        productNameTextField.setText(selectedproduct.toString());
+        String revenues = String.valueOf(productsummary.getSalesRevenues());
+        productRevenueTextField.setText(revenues);
+        productFrequencyAboveTargetTextField.setText(String.valueOf(productsummary.getNumberAboveTarget()));
+        productFrequencyBelowTargetTextField.setText(String.valueOf(productsummary.getNumberBelowTarget()));
+        productPricePerformanceTextField.setText(String.valueOf(productsummary.getProductPricePerformance()));
     }//GEN-LAST:event_PatientHistoryTableMousePressed
 
-    private void addToCartBtnAddProductItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartBtnAddProductItemActionPerformed
+    private void ChangeStatusBtnAddProductItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangeStatusBtnAddProductItemActionPerformed
         // TODO add your handling code here:
 
 //        int suppliertablesize = PatientHistoryTable.getRowCount();
@@ -218,15 +294,26 @@ public class ViewPatientDetails extends javax.swing.JPanel {
 //            JOptionPane.showMessageDialog(this, "Please enter valid numeric values for price and quantity.");
 //        }
 
-    }//GEN-LAST:event_addToCartBtnAddProductItemActionPerformed
+    }//GEN-LAST:event_ChangeStatusBtnAddProductItemActionPerformed
+
+    private void OrderItemsTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderItemsTableMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OrderItemsTableMouseEntered
+
+    private void OrderItemsTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderItemsTableMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OrderItemsTableMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ChangeStatusBtn;
+    private javax.swing.JTable OrderItemsTable;
     private javax.swing.JTable PatientHistoryTable;
     private javax.swing.JComboBox<String> SuppliersComboBox;
-    private javax.swing.JButton addToCartBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel lblOrderItems;
     private javax.swing.JLabel lblPatient;
     private javax.swing.JLabel lblSuppliers;
     // End of variables declaration//GEN-END:variables
