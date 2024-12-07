@@ -11,6 +11,7 @@ import Business.Pharmacy.PharmacyDirectory;
 import Business.Pharmacy.PharmacyInventory;
 import Business.Pharmacy.PharmacyMedicine;
 import Business.UserAccount.UserAccount;
+import Business.WorkRequest.LabWorkRequest;
 import Business.WorkRequest.ProductQuantity;
 import java.awt.CardLayout;
 import java.util.ArrayList;

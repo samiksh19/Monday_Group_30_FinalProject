@@ -84,7 +84,7 @@ public class AppointmentSchedule extends javax.swing.JPanel {
             } else {
                 return false;
             }
-            Nurse nurse = receptionDirectory.getReceptionList().get(index);
+            Nurse nurse = nurseDirectory.getReceptionList().get(index);
             Doctor doctor = doctorDirectory.getDoctorList().get(rstCombo.getSelectedIndex());
             Account account = accountDirectory.getAccountList().get(0);
             if (nurse != null) {
