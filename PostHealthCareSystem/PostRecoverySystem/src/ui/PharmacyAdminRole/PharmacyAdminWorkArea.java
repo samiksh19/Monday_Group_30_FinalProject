@@ -4,6 +4,10 @@
  */
 package ui.PharmacyAdminRole;
 
+import Business.Business;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author prach
@@ -13,8 +17,14 @@ public class PharmacyAdminWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form PharmacyMed
      */
-    public PharmacyAdminWorkArea() {
+    JPanel userProcessContainer;
+    Business business;
+    UserAccount userAccount;
+    public PharmacyAdminWorkArea(JPanel userProcessContainer, UserAccount userAccount, Business business) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.business=business;
+        this.userAccount = userAccount; 
     }
 
     /**

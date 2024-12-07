@@ -4,6 +4,10 @@
  */
 package ui.InsuranceAdminRole;
 
+import Business.Business;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author dalea
@@ -13,8 +17,14 @@ public class InsuranceAdmin extends javax.swing.JPanel {
     /**
      * Creates new form InsuranceAdmin
      */
-    public InsuranceAdmin() {
+    JPanel userProcessContainer;
+    Business business;
+    UserAccount userAccount;
+    public InsuranceAdmin(JPanel userProcessContainer, UserAccount userAccount, Business business) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.business=business;
+        this.userAccount = userAccount; 
     }
 
     /**

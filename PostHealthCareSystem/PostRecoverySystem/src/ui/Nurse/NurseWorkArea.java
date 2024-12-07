@@ -4,6 +4,10 @@
  */
 package ui.Nurse;
 
+import Business.Business;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author prach
@@ -13,8 +17,14 @@ public class NurseWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form NurseWorkArea
      */
-    public NurseWorkArea() {
+    JPanel userProcessContainer;
+    Business business;
+    UserAccount userAccount;
+    public NurseWorkArea(JPanel userProcessContainer, UserAccount userAccount, Business business) {
         initComponents();
+         this.userProcessContainer=userProcessContainer;
+        this.business =business;
+        this.userAccount = userAccount;
     }
 
     /**

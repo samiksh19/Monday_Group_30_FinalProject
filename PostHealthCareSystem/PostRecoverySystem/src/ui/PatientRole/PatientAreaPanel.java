@@ -4,17 +4,26 @@
  */
 package ui.PatientRole;
 
+import Business.Business;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author prach
  */
-public class PatientAreaJPanel extends javax.swing.JPanel {
-
+public class PatientAreaPanel extends javax.swing.JPanel {
+    private JPanel userProcessContainer;
+    Business business;
+    private UserAccount userAccount;
     /**
      * Creates new form PatientAreaJPanel
      */
-    public PatientAreaJPanel() {
+    public PatientAreaPanel(JPanel userProcessContainer, UserAccount account, Business business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.business = business;
+        this.userAccount = account;
     }
 
     /**
