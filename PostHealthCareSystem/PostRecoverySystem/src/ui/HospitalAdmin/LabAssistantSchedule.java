@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.Hospital;
+package ui.HospitalAdmin;
 
 /**
  *
  * @author dalea
  */
-public class ManageHospitalStaff extends javax.swing.JPanel {
+public class LabAssistantSchedule extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageHospitalStaff
+     * Creates new form LabAssistantSchedule
      */
-    public ManageHospitalStaff() {
+    public LabAssistantSchedule() {
         initComponents();
     }
 

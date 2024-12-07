@@ -4,6 +4,9 @@
  */
 package ui.SystemAdmin;
 
+import Business.Business;
+import javax.swing.JPanel;
+
 /**
  *
  * @author prach
@@ -13,8 +16,12 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form SystemAdminWorkArea
      */
-    public SystemAdminWorkArea() {
+    JPanel userProcessContainer;
+    Business business;
+    public SystemAdminWorkArea(JPanel userProcessContainer,Business business) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.business=business;
     }
 
     /**

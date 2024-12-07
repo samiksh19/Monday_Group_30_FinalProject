@@ -4,17 +4,31 @@
  */
 package ui.Doctor;
 
+import Business.Business;
+import Business.UserAccount.UserAccount;
+import Business.WorkRequest.WorkRequest;
+import java.util.List;
+import javax.swing.JPanel;
+
 /**
  *
  * @author dalea
  */
 public class DoctorAreaPanel extends javax.swing.JPanel {
-
+    private JPanel userProcessContainer;
+    private Business business;
+    private UserAccount userAccount;
+    private List<WorkRequest> workRequestList;
     /**
      * Creates new form DoctorAreaPanel
      */
-    public DoctorAreaPanel() {
+    public DoctorAreaPanel(JPanel userProcessContainer, UserAccount userAccount, Business business) {
         initComponents();
+//        creatingListenerForDelInfo();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.business = business;
+//        fillDelRqTable();
     }
 
     /**
