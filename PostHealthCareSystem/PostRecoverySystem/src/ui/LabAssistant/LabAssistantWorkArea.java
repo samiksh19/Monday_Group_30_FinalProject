@@ -4,6 +4,12 @@
  */
 package ui.LabAssistant;
 
+import Business.Business;
+import Business.UserAccount.UserAccount;
+import Business.WorkRequest.WorkRequest;
+import java.util.List;
+import javax.swing.JPanel;
+
 /**
  *
  * @author prach
@@ -13,8 +19,19 @@ public class LabAssistantWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form LabAssistantWorkArea
      */
-    public LabAssistantWorkArea() {
+    private JPanel userProcessContainer;
+    private Business newlife;
+    private UserAccount userAccount;
+    private List<WorkRequest> workRequestList;
+
+    public LabAssistantWorkArea(JPanel userProcessContainer, UserAccount userAccount, Business business) {
         initComponents();
+//        creatingListenerForDelInfo();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.newlife = newlife;
+//        fillDelRqTable();
+        System.out.println("Done fillDelRqTable ");
     }
 
     /**

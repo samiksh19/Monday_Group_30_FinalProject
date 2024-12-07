@@ -4,6 +4,12 @@
  */
 package ui.Porter;
 
+import Business.Business;
+import Business.UserAccount.UserAccount;
+import Business.WorkRequest.WorkRequest;
+import java.util.List;
+import javax.swing.JPanel;
+
 /**
  *
  * @author prach
@@ -13,8 +19,17 @@ public class PorterWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form PorterWorkArea
      */
-    public PorterWorkArea() {
+    private JPanel userProcessContainer;
+    private Business business;
+    private UserAccount userAccount;
+    private List<WorkRequest> workRequestList;
+    public PorterWorkArea(JPanel userProcessContainer, UserAccount userAccount, Business business) {
         initComponents();
+//        creatingListenerForDelInfo();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.business = business;
+//        fillDelRqTable();
     }
 
     /**
