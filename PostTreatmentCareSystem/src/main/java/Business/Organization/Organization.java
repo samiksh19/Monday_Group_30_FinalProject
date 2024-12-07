@@ -4,8 +4,10 @@
  */
 package Business.Organization;
 
+import Business.Employee.EmployeeDirectory;
 import Business.Roles.Role;
 import Business.UserAccount.UserAccountDirectory;
+import Business.WorkQueue.WorkQueue;
 import java.util.ArrayList;
 
 /**
@@ -16,10 +18,18 @@ public abstract class Organization {
 
     private String name;
     private UserAccountDirectory userAccountDirectory;
-
+    private WorkQueue workQueue;
+    private EmployeeDirectory employeeDirectory;
+    private int organizationID;
+    private static int counter = 0;
+    
     public Organization(String name) {
         this.name = name;
-        userAccountDirectory = new UserAccountDirectory();
+        userAccountDirectory = new UserAccountDirectory();      
+        workQueue = new WorkQueue();
+        employeeDirectory = new EmployeeDirectory();
+        organizationID = counter;
+        ++counter;
     }
 
     public UserAccountDirectory getUserAccountDirectory() {
@@ -47,5 +57,34 @@ public abstract class Organization {
         public String getValue() {
             return value;
         }
+    }
+    
+    public int getOrganizationID() {
+        return organizationID;
+    }
+
+    public EmployeeDirectory getEmployeeDirectory() {
+        return employeeDirectory;
+    }
+    
+    public String getName() {
+        return name;
+    }
+
+    public WorkQueue getWorkQueue() {
+        return workQueue;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setWorkQueue(WorkQueue workQueue) {
+        this.workQueue = workQueue;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

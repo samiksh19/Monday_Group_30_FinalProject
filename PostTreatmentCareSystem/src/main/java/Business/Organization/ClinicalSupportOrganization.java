@@ -5,6 +5,8 @@
 package Business.Organization;
 
 import Business.Roles.CaregiverRole;
+import Business.Roles.Role;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,6 +26,5 @@ public class ClinicalSupportOrganization extends Organization {
     public ClinicalSupportOrganization() {
         
         super(Organization.OrganizationType.ClinicalSupportOrg.getValue());
-     }
-     
+     }     
 }

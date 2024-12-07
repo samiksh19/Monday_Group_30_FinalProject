@@ -8,6 +8,10 @@ package Business.Organization;
  *
  * @author samik
  */
-public class NursingOrganization {
+public class NursingOrganization extends Organization {
     
+    public NursingOrganization()
+    {
+        super(OrganizationType.NursingOrg.getValue());
+    }
 }
