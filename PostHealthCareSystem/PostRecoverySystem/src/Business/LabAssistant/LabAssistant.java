@@ -2,24 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Business.AmbulanceDriver;
+package Business.LabAssistant;
 
 import Business.UserAccount.UserAccount;
 
 /**
  *
- * @author prach
+ * @author samik
  */
-public class AmbulanceDriver extends UserAccount{
-    private String ambulanceDriverName;
+public class LabAssistant extends UserAccount{
+    private String labAssistantName;
     private String type;
 
-    public String getAmbulanceDriverName() {
-        return ambulanceDriverName;
+    public String getLabAssistantName() {
+        return labAssistantName;
     }
 
-    public void setAmbulanceDriverName(String ambulanceDriverName) {
-        this.ambulanceDriverName = ambulanceDriverName;
+    public void setLabAssistantName(String labAssistantName) {
+        this.labAssistantName = labAssistantName;
     }
 
     public String getType() {
@@ -30,8 +30,8 @@ public class AmbulanceDriver extends UserAccount{
         this.type = type;
     }
     
-     @Override
+    @Override
     public String toString() {
-        return this.ambulanceDriverName;
+        return this.labAssistantName;
     }
 }

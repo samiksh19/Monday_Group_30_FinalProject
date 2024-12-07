@@ -4,10 +4,29 @@
  */
 package Business.Account;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author prach
  */
 public class AccountDirectory {
+    ArrayList<Account> accountList;
     
+    public AccountDirectory(){
+        accountList = new ArrayList<>();
+    }
+
+    public ArrayList<Account> getAccountList() {
+        return accountList;
+    }
+    
+    public ArrayList<Account> addAccount(Account account){
+        
+        accountList.add(account);
+        return accountList;
+    }
+    public void removeAccount(Account account){
+        accountList.remove(account);
+    }
 }
