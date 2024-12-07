@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Business.Pharmaceuticals;
+package Business.Pharmaceutical;
 
 import Business.Porter.Porter;
 import Business.Role.SysAdminRole;
@@ -12,8 +12,9 @@ import Business.UserAccount.UserAccount;
  *
  * @author samik
  */
-public class Pharmaceutical extends UserAccount{
-    private String orderId;
+public class Pharmaceutical extends UserAccount {
+    
+     private String orderId;
     private SysAdminRole systemAdmin;
     private Porter deliveryMan;
     private String pharmaceuticalName;
@@ -81,4 +82,5 @@ public class Pharmaceutical extends UserAccount{
     public String toString() {
         return pharmaceuticalName;
     }
+    
 }

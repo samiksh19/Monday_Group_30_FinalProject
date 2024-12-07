@@ -5,8 +5,8 @@
 package ui.SystemAdmin;
 
 import Business.Business;
-import Business.Pharmaceuticals.Pharmaceutical;
-import Business.Pharmaceuticals.PharmaceuticalDirectory;
+import Business.Pharmaceutical.Pharmaceutical;
+import Business.Pharmaceutical.PharmaceuticalDirectory;
 import Business.Role.PharmaceuticalAdminRole;
 import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
