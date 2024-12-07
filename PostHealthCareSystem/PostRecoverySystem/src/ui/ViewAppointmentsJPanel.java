@@ -6,14 +6,14 @@ package ui;
 
 /**
  *
- * @author samik
+ * @author dalea
  */
-public class Login extends javax.swing.JPanel {
+public class ViewAppointmentsJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form Login
+     * Creates new form ViewAppointmentsJPanel
      */
-    public Login() {
+    public ViewAppointmentsJPanel() {
         initComponents();
     }
 
