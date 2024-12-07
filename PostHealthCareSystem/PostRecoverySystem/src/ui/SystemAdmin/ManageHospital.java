@@ -9,6 +9,8 @@ import Business.Hospital.HospitalAdmin;
 import Business.Hospital.HospitalAdminDirectory;
 import Business.Role.HospitalAdminRole;
 import Business.UserAccount.UserAccountDirectory;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
@@ -372,6 +374,13 @@ public class ManageHospital extends javax.swing.JPanel {
 
     private void backjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backjButton1ActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemAdminWorkArea sysAdminwjp = (SystemAdminWorkArea) component;
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_backjButton1ActionPerformed
 
     private void btnDeliveryManbtnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeliveryManbtnCreateActionPerformed
