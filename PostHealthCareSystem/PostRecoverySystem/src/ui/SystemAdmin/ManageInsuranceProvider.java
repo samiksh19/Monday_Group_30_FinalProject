@@ -7,6 +7,7 @@ package ui.SystemAdmin;
 import Business.Business;
 import Business.InsuranceBody.InsuranceBody;
 import Business.InsuranceBody.InsuranceProviderDirectory;
+import Business.Role.InsuranceAdminRole;
 import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -216,14 +217,14 @@ public class ManageInsuranceProvider extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(userNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                    .addComponent(userNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(passwordTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                    .addComponent(passwordTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deliveryManNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deliveryManNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(122, 122, 122)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,7 +232,7 @@ public class ManageInsuranceProvider extends javax.swing.JPanel {
                         .addComponent(btnDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -256,7 +257,7 @@ public class ManageInsuranceProvider extends javax.swing.JPanel {
             insuranceAdmin.setUsername(userNameTextfield.getText());
             insuranceAdmin.setPassword(passwordTextfield.getText());
             insuranceAdmin.setInsuranceProviderName(deliveryManNameTextfield.getText());
-            //insuranceAdmin.setRole(new InsuranceAdminRole());
+            insuranceAdmin.setRole(new InsuranceAdminRole());
 
             fillTable();
             userNameTextfield.setText("");
@@ -344,7 +345,7 @@ public class ManageInsuranceProvider extends javax.swing.JPanel {
             insuranceAdmin.setInsuranceProviderName(deliveryManNameTextfield.getText());
             insuranceAdmin.setUsername(userNameTextfield.getText());
             insuranceAdmin.setPassword(passwordTextfield.getText());
-            //insuranceAdmin.setRole(new InsuranceAdminRole());
+            insuranceAdmin.setRole(new InsuranceAdminRole());
             business.getUserAccountDirectory().addUserAccount(insuranceAdmin);
             business.getInsuranceProviderDirectory().addInsuranceProvider(insuranceAdmin);
 
