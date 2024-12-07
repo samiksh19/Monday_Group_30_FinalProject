@@ -4,17 +4,109 @@
  */
 package ui.Nurse;
 
+import Business.Business;
+import Business.Doctors.Doctor;
+import Business.Doctors.DoctorDirectory;
+import Business.Porter.PorterDirectory;
+import Business.UserAccount.UserAccount;
+import Business.WorkRequest.LabWorkRequest;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author prach
  */
 public class AcceptOrRejectOrder extends javax.swing.JPanel {
 
+    JPanel userProcessContainer;
+    UserAccount userAccount;
+    Business business;
+    LabWorkRequest labTestWorkRequest;
+    double total = 0.0;
+    private PorterDirectory deliveryManDirectory;
+    private DoctorDirectory doctorDirectory;
+    private int index = -1;
+
     /**
      * Creates new form AcceptOrRejectOrder
      */
-    public AcceptOrRejectOrder() {
+    public AcceptOrRejectOrder(JPanel userProcessContainer, Business business, UserAccount userAccount, LabWorkRequest labTestWorkRequest) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.business = business;
+        this.userAccount = userAccount;
+        this.labTestWorkRequest = labTestWorkRequest;
+        deliveryManDirectory = business.getDeliveryManDirectory();
+        doctorDirectory = business.getDoctorDirectory();
+        fillDelList(doctorDirectory.getDoctorList());
+        change();
+        display();
+    }
+
+    private void display() {
+
+        fillDelUI();
+
+        status.setText(labTestWorkRequest.getStatus());
+        message.setText(labTestWorkRequest.getMessage());
+
+    }
+
+    private void declineOrder() {
+        labTestWorkRequest.setStatus("Declined");
+        JOptionPane.showMessageDialog(null, "Appointment has been declined");
+        change();
+        status.setText(labTestWorkRequest.getStatus());
+    }
+
+    private void change() {
+        switch (labTestWorkRequest.getStatus()) {
+            case "Request to Hospital": {
+                acceptOrder.setText("Accept appointment");
+                declineOrder.setVisible(true);
+                break;
+            }
+            case "Waiting for doctor to be assigned": {
+                acceptOrder.setText("Ping the Doctor");
+                declineOrder.setVisible(false);
+                break;
+            }
+            default: {
+                declineOrder.setVisible(false);
+                acceptOrder.setVisible(false);
+                break;
+            }
+        }
+        fillDelUI();
+    }
+
+    private void fillDelUI() {
+        if (labTestWorkRequest.getDoctor() == null && !("ordered".equalsIgnoreCase(labTestWorkRequest.getStatus()) || "declined".equalsIgnoreCase(labTestWorkRequest.getStatus()))) {
+            assignDeliveryPersonLabel.setVisible(true);
+            assignDeliveryPerson.setVisible(true);
+
+            jButtonAddDeliveryMan.setVisible(true);
+
+        } else {
+            jButtonAddDeliveryMan.setVisible(false);
+            assignDeliveryPersonLabel.setVisible(false);
+            assignDeliveryPerson.setVisible(false);
+
+        }
+    }
+
+    public void fillDelList(ArrayList<Doctor> doctorList) {
+        if (labTestWorkRequest.getDeliverMan() == null) {
+            assignDeliveryPerson.setVisible(true);
+            for (Doctor doctor : doctorList) {
+                assignDeliveryPerson.addItem(doctor.getName());
+            }
+        } else {
+            assignDeliveryPerson.setVisible(false);
+        }
     }
 
     /**
@@ -25,20 +117,262 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        jPanel1 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        message = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        status = new javax.swing.JLabel();
+        btnBack1 = new javax.swing.JButton();
+        acceptOrder = new javax.swing.JButton();
+        assignDeliveryPerson = new javax.swing.JComboBox<>();
+        jButtonAddDeliveryMan = new javax.swing.JButton();
+        assignDeliveryPersonLabel = new javax.swing.JLabel();
+        declineOrder = new javax.swing.JButton();
+
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        jLabel10.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Message");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 59, 0, 0);
+        jPanel1.add(jLabel10, gridBagConstraints);
+
+        message.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        message.setForeground(new java.awt.Color(255, 255, 255));
+        message.setText("<value>");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 23;
+        gridBagConstraints.ipadx = 216;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 93, 0, 0);
+        jPanel1.add(message, gridBagConstraints);
+
+        jLabel12.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("APPOINTMENT DETAILS");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 28;
+        gridBagConstraints.ipadx = 338;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 2, 0, 3);
+        jPanel1.add(jLabel12, gridBagConstraints);
+
+        jLabel14.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Status");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 80, 0, 0);
+        jPanel1.add(jLabel14, gridBagConstraints);
+
+        status.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        status.setForeground(new java.awt.Color(255, 255, 255));
+        status.setText("<value>");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.ipadx = 149;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 93, 0, 0);
+        jPanel1.add(status, gridBagConstraints);
+
+        btnBack1.setBackground(new java.awt.Color(255, 255, 204));
+        btnBack1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnBack1.setText("Back");
+        btnBack1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipady = -6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 12, 0, 0);
+        jPanel1.add(btnBack1, gridBagConstraints);
+
+        acceptOrder.setBackground(new java.awt.Color(255, 255, 204));
+        acceptOrder.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        acceptOrder.setText("Accept Appointment");
+        acceptOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptOrderActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(36, 25, 131, 0);
+        jPanel1.add(acceptOrder, gridBagConstraints);
+
+        assignDeliveryPerson.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        assignDeliveryPerson.setForeground(new java.awt.Color(255, 153, 51));
+        assignDeliveryPerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignDeliveryPersonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 98;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(41, 92, 0, 0);
+        jPanel1.add(assignDeliveryPerson, gridBagConstraints);
+
+        jButtonAddDeliveryMan.setBackground(new java.awt.Color(255, 255, 204));
+        jButtonAddDeliveryMan.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jButtonAddDeliveryMan.setText("Assign");
+        jButtonAddDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddDeliveryManActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 14;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(41, 12, 0, 0);
+        jPanel1.add(jButtonAddDeliveryMan, gridBagConstraints);
+
+        assignDeliveryPersonLabel.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        assignDeliveryPersonLabel.setForeground(new java.awt.Color(255, 255, 255));
+        assignDeliveryPersonLabel.setText("Assign Doctor");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(45, 16, 0, 0);
+        jPanel1.add(assignDeliveryPersonLabel, gridBagConstraints);
+
+        declineOrder.setBackground(new java.awt.Color(255, 255, 204));
+        declineOrder.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        declineOrder.setText("Decline Appointment");
+        declineOrder.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                declineOrderMousePressed(evt);
+            }
+        });
+        declineOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                declineOrderActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(36, 10, 131, 0);
+        jPanel1.add(declineOrder, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 786, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 419, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
+        ManageAppointments viewOrderDetails = new ManageAppointments(userProcessContainer, business, userAccount);
+        userProcessContainer.add("ViewOrderDetails", viewOrderDetails);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnBack1ActionPerformed
+
+    private void acceptOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptOrderActionPerformed
+
+        if (labTestWorkRequest.getStatus().equals("Request to Hospital")) {
+            labTestWorkRequest.setStatus("Waiting for doctor to be assigned");
+            JOptionPane.showMessageDialog(null, " Appointment Scheduled. Waiting for doctor to be assigned");
+        } else if (labTestWorkRequest.getStatus().equals("Waiting for doctor to be assigned")) {
+            labTestWorkRequest.setStatus("Doctor Assigned");
+            if (labTestWorkRequest.getDeliverMan() == null) {
+                JOptionPane.showMessageDialog(null, " Doctor Assigned");
+            } else {
+                JOptionPane.showMessageDialog(null, "Doctor will be assigned");
+            }
+        } else {
+            acceptOrder.setVisible(false);
+        }
+        change();
+        status.setText(labTestWorkRequest.getStatus());
+    }//GEN-LAST:event_acceptOrderActionPerformed
+
+    private void assignDeliveryPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignDeliveryPersonActionPerformed
+        index = assignDeliveryPerson.getSelectedIndex();
+    }//GEN-LAST:event_assignDeliveryPersonActionPerformed
+
+    private void jButtonAddDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddDeliveryManActionPerformed
+        if (index >= 0) {
+            Doctor doctor = doctorDirectory.getDoctorList().get(assignDeliveryPerson.getSelectedIndex());
+            labTestWorkRequest.setDoctor(doctor);
+            JOptionPane.showMessageDialog(null, doctor + " Doctor assigned");
+            fillDelUI();
+        }
+    }//GEN-LAST:event_jButtonAddDeliveryManActionPerformed
+
+    private void declineOrderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_declineOrderMousePressed
+        declineOrder();
+    }//GEN-LAST:event_declineOrderMousePressed
+
+    private void declineOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_declineOrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_declineOrderActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton acceptOrder;
+    private javax.swing.JComboBox<String> assignDeliveryPerson;
+    private javax.swing.JLabel assignDeliveryPersonLabel;
+    private javax.swing.JButton btnBack1;
+    private javax.swing.JButton declineOrder;
+    private javax.swing.JButton jButtonAddDeliveryMan;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel message;
+    private javax.swing.JLabel status;
     // End of variables declaration//GEN-END:variables
 }
