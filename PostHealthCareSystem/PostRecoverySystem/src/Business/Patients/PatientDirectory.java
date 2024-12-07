@@ -4,10 +4,31 @@
  */
 package Business.Patients;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author samik
  */
 public class PatientDirectory {
+     private ArrayList<Patient> patientlist;
     
+    public PatientDirectory(){
+        patientlist = new ArrayList<Patient>();
+    }
+    public ArrayList<Patient> getPatientList() {
+        return patientlist;
+        
+    }
+    
+    public ArrayList<Patient> addPatient(Patient c){
+       
+        patientlist.add(c);
+        return patientlist;
+    }
+     public ArrayList<Patient> deletePatient(Patient c){
+       
+        patientlist.remove(c);
+        return patientlist;
+    }
 }
