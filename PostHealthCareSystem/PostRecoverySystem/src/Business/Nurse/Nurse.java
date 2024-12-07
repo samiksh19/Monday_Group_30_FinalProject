@@ -4,10 +4,43 @@
  */
 package Business.Nurse;
 
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author samik
  */
-public class Nurse {
-    
+public class Nurse extends UserAccount{
+    private String receptionName;
+    private String orderId;
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getName() {
+        return receptionName;
+    }
+
+    public void setName(String receptionName) {
+        this.receptionName = receptionName;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    @Override
+    public String toString() {
+        return receptionName;
+    }
 }

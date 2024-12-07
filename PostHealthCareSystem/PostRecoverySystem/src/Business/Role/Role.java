@@ -43,6 +43,7 @@ public abstract class Role {
         }
     
     }
+    
     public abstract JPanel createWorkArea(JPanel userProcessContainer, 
             UserAccount account,
             Business business);

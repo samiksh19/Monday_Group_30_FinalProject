@@ -5,8 +5,9 @@
 package Business.UserAccount;
 
 import Business.Employee.Employee;
+import Business.Role.Role;
 import Business.WorkRequest.WorkList;
-import javax.management.relation.Role;
+
 
 /**
  *
@@ -61,8 +62,6 @@ public class UserAccount {
         return workQueue;
     }
 
-    
-    
     @Override
     public String toString() {
         return username;

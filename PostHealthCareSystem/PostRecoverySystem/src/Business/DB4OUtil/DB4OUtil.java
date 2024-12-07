@@ -1,6 +1,7 @@
 package Business.DB4OUtil;
 
 import Business.Business;
+import Business.ConfigureASystem;
 import java.nio.file.Paths;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
@@ -71,15 +72,16 @@ public class DB4OUtil {
             // Query the system and fetch it safely
             ObjectSet<Business> systems = conn.query(Business.class);
 
-            Business system = null;
+            Business system;
             if (systems.isEmpty()) {
-                //system = SystemConfig.configure();  // If no system in db, create a new one
+                system = ConfigureASystem.configure();  // If no system in db, create a new one
             } else {
-                //system = systems.get(systems.size() - 1); // Get the last system object in the db
+                system = systems.get(systems.size() - 1); // Get the last system object in the db
             }
 
             return system;
-        } catch (Exception ex) {
+        } 
+        catch (Exception ex) {
             System.err.println("Error retrieving system: " + ex.getMessage());
             ex.printStackTrace(); // Log the exception stack trace for debugging
             return null;  // Return null if an error occurs
