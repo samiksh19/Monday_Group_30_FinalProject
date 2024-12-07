@@ -4,10 +4,52 @@
  */
 package Business.Hospital;
 
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author prach
  */
-public class HospitalAdmin {
+public class HospitalAdmin extends UserAccount{
+    private String hospitalName;
+    private String address;
+    private String orderId;
+    private String contactNumber;
+
+    public String getHospitalName() {
+        return hospitalName;
+    }
+
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
     
+    @Override
+    public String toString() {
+        return hospitalName;
+    }
 }

@@ -4,10 +4,33 @@
  */
 package Business.AmbulanceDriver;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author prach
  */
 public class AmbulanceDriverDirectory {
+    ArrayList<AmbulanceDriver> ambulanceDriverList;
+
+    public AmbulanceDriverDirectory() {
+        ambulanceDriverList = new ArrayList<>();
+    }
+
+    public ArrayList<AmbulanceDriver> getAmbulanceDriverList() {
+        return ambulanceDriverList;
+    }
+
+    public void setAmbulanceDriverList(ArrayList<AmbulanceDriver> ambulanceDriverList) {
+        this.ambulanceDriverList = ambulanceDriverList;
+    }
     
+    public ArrayList<AmbulanceDriver> addAmbulanceDriver(AmbulanceDriver ambulanceDriver){
+        
+        ambulanceDriverList.add(ambulanceDriver);
+        return ambulanceDriverList;
+    }
+    public void removeAmbulanceDriver(AmbulanceDriver ambulanceDriver){
+        ambulanceDriverList.remove(ambulanceDriver);
+    }
 }
