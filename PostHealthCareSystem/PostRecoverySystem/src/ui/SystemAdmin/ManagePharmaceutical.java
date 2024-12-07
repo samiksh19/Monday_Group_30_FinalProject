@@ -4,6 +4,19 @@
  */
 package ui.SystemAdmin;
 
+import Business.Business;
+import Business.Pharmaceutical.Pharmaceutical;
+import Business.Pharmaceutical.PharmaceuticalDirectory;
+import Business.Role.PharmaceuticalAdminRole;
+import Business.UserAccount.UserAccountDirectory;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author prach
@@ -13,10 +26,55 @@ public class ManagePharmaceutical extends javax.swing.JPanel {
     /**
      * Creates new form ManagePharmaceutical
      */
-    public ManagePharmaceutical() {
+    JPanel userProcessContainer;
+    Business business;
+    UserAccountDirectory userAccountList;
+
+    public ManagePharmaceutical(JPanel userProcessContainer, Business business) {
         initComponents();
+        creatingListenerForModification();
+        this.userProcessContainer = userProcessContainer;
+        this.business = business;
+        fillTable();
     }
 
+    private void fillTable() {
+        PharmaceuticalDirectory pharmaceuticalDirectory = business.getPharmaceuticalDirectory();
+        DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
+        model.setRowCount(0);
+        for (Pharmaceutical pharmaceutical : pharmaceuticalDirectory.getPharmaceuticalList()) {
+            Object[] row = new Object[5];
+            row[0] = pharmaceutical;
+            row[1] = pharmaceutical.getUsername();
+            row[2] = pharmaceutical.getPassword();
+            row[3] = pharmaceutical.getAddress();
+            row[4] = pharmaceutical.getContact();
+            model.addRow(row);
+        }
+    }
+
+    private void creatingListenerForModification() {
+        tblCustomers.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                int selectedRow = tblCustomers.getSelectedRow();
+                if (selectedRow >= 0) {
+                    Pharmaceutical pharmaceutical = (Pharmaceutical) tblCustomers.getValueAt(selectedRow, 0);
+                    if (pharmaceutical != null) {
+                        display(pharmaceutical);
+                    }
+                }
+            }
+        });
+    }
+
+    private void display(Pharmaceutical pharmaceutical) {
+        userNameTextfield.setText(pharmaceutical.getUsername());
+        passwordTextfield.setText(pharmaceutical.getPassword());
+        txtPharName.setText(pharmaceutical.getPharmaceuticalName()); 
+        address.setText(pharmaceutical.getAddress()); 
+        contact.setText(pharmaceutical.getContact()); 
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,19 +84,367 @@ public class ManagePharmaceutical extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblCustomers = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtPharName = new javax.swing.JTextField();
+        btnCreate = new javax.swing.JButton();
+        btnModify = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        passwordTextfield = new javax.swing.JTextField();
+        userNameTextfield = new javax.swing.JTextField();
+        backjButton1 = new javax.swing.JButton();
+        address = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        contact = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+
+        tblCustomers.setBackground(new java.awt.Color(204, 255, 204));
+        tblCustomers.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        tblCustomers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "NAME", "USERNAME", "PASSWORD", "ADDRESS", "CONTACT"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblCustomers.setSelectionBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setViewportView(tblCustomers);
+
+        jLabel1.setBackground(new java.awt.Color(0, 149, 218));
+        jLabel1.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("MANAGE PHARMACEUTICAL");
+
+        jLabel2.setBackground(new java.awt.Color(0, 149, 218));
+        jLabel2.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Username");
+
+        jLabel3.setBackground(new java.awt.Color(0, 149, 218));
+        jLabel3.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Password");
+
+        jLabel5.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Pharmaceutical Name");
+
+        txtPharName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        txtPharName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPharName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtPharName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPharNameActionPerformed(evt);
+            }
+        });
+
+        btnCreate.setBackground(new java.awt.Color(255, 255, 204));
+        btnCreate.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+
+        btnModify.setBackground(new java.awt.Color(255, 255, 204));
+        btnModify.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnModify.setText("Modify");
+        btnModify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyActionPerformed(evt);
+            }
+        });
+
+        btnDelete.setBackground(new java.awt.Color(255, 255, 204));
+        btnDelete.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        passwordTextfield.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        passwordTextfield.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        passwordTextfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        userNameTextfield.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        userNameTextfield.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        userNameTextfield.setToolTipText("");
+        userNameTextfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        backjButton1.setBackground(new java.awt.Color(255, 255, 204));
+        backjButton1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        backjButton1.setText("Back");
+        backjButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backjButton1ActionPerformed(evt);
+            }
+        });
+
+        address.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        address.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        address.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel6.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Pharmaceutical Address");
+
+        contact.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        contact.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        contact.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel7.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Pharmaceutical Contact");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(backjButton1))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(326, 326, 326)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(userNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(216, 216, 216)
+                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(331, 331, 331)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jLabel5))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel6)))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPharName, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(backjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(userNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(passwordTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPharName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 915, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 564, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+        if (userNameTextfield.getText().isEmpty() || passwordTextfield.getText().isEmpty() || txtPharName.getText().isEmpty() || contact.getText().isEmpty() || address.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Enter the field details");
+            return;
+        }
+        if (contact.getText().length() != 10) {
+            JOptionPane.showMessageDialog(null, "Enter a valid phone number");
+            return;
+        }
+        if (business.getUserAccountDirectory().checkUsernameUnique(userNameTextfield.getText())) {
+            Pharmaceutical pharmaceutical = new Pharmaceutical();
+            pharmaceutical.setPharmaceuticalName(txtPharName.getText());
+            pharmaceutical.setUsername(userNameTextfield.getText());
+            pharmaceutical.setAddress(address.getText());
+            pharmaceutical.setContact(contact.getText());
+            pharmaceutical.setPassword(passwordTextfield.getText());
+            pharmaceutical.setRole(new PharmaceuticalAdminRole());
+            business.getUserAccountDirectory().addUserAccount(pharmaceutical);
+            business.getPharmaceuticalDirectory().addPharmaceutical(pharmaceutical);
+            fillTable();
+            userNameTextfield.setText("");
+            passwordTextfield.setText("");
+            txtPharName.setText("");
+            address.setText("");
+            contact.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Username " + userNameTextfield.getText() + "exists");
+        }
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblCustomers.getSelectedRow();
+        if (selectedRow >= 0) {
+            System.out.println("selected row" + selectedRow);
+            Pharmaceutical pharmaceutical = (Pharmaceutical) tblCustomers.getValueAt(selectedRow, 0);
+            System.out.println("item : " + pharmaceutical);
+            pharmaceutical.setUsername(userNameTextfield.getText());
+            pharmaceutical.setPassword(passwordTextfield.getText());
+            pharmaceutical.setPharmaceuticalName(txtPharName.getText());
+            pharmaceutical.setAddress(address.getText());
+            pharmaceutical.setContact(contact.getText());
+            pharmaceutical.setRole(new PharmaceuticalAdminRole());
+            fillTable();
+            userNameTextfield.setText("");
+            passwordTextfield.setText("");
+            txtPharName.setText("");
+            address.setText("");
+            contact.setText("");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Select a row");
+        }
+    }//GEN-LAST:event_btnModifyActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblCustomers.getSelectedRow();
+        if (selectedRow >= 0) {
+            Pharmaceutical pharmaceutical = (Pharmaceutical) tblCustomers.getValueAt(selectedRow, 0);
+            PharmaceuticalDirectory pharmaceuticalDirectory = business.getPharmaceuticalDirectory();
+            pharmaceuticalDirectory.deletePharmaceutical(pharmaceutical);
+            JOptionPane.showMessageDialog(null, "Pharmaceutical admin" + userNameTextfield.getText() + " deleted");
+            fillTable();
+            txtPharName.setText("");
+            userNameTextfield.setText("");
+            passwordTextfield.setText("");
+            address.setText("");
+            contact.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Select a row.");
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void backjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backjButton1ActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemAdminWorkArea sysAdminwjp = (SystemAdminWorkArea) component;
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backjButton1ActionPerformed
+
+    private void txtPharNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPharNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPharNameActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField address;
+    private javax.swing.JButton backjButton1;
+    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnModify;
+    private javax.swing.JTextField contact;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField passwordTextfield;
+    private javax.swing.JTable tblCustomers;
+    private javax.swing.JTextField txtPharName;
+    private javax.swing.JTextField userNameTextfield;
     // End of variables declaration//GEN-END:variables
 }
