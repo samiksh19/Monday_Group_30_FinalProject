@@ -31,6 +31,8 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
+        system = dB4OUtil.retrieveSystem();
+        this.setSize(1680, 1050);
     }
 
     /**
@@ -182,20 +184,20 @@ public class MainJFrame extends javax.swing.JFrame {
 
         UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
 
-        if(userAccount==null){
+        if (userAccount == null){
             JOptionPane.showMessageDialog(null, "Invalid credentials");
             return;
         }
         else {
-//            if (userAccount instanceof Patient){
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, (Patient)userAccount, system));
-//            }else if(userAccount instanceof Pharmacy){
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, (Pharmacy)userAccount, system));
-//            }else if(userAccount instanceof Porter){
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, (Porter)userAccount, system));
-//            }else{
-//                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, system));
-//            }
+           if (userAccount instanceof Patient){
+                container.add("workArea", userAccount.getRole().createWorkArea(container, (Patient)userAccount, system));
+            }else if(userAccount instanceof Pharmacy){
+                container.add("workArea", userAccount.getRole().createWorkArea(container, (Pharmacy)userAccount, system));
+            }else if(userAccount instanceof Porter){
+                container.add("workArea", userAccount.getRole().createWorkArea(container, (Porter)userAccount, system));
+            }else{
+                container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, system));
+            }
             CardLayout layout = (CardLayout) container.getLayout();
             layout.next(container);
         }

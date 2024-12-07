@@ -4,10 +4,31 @@
  */
 package Business.Nurse;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author samik
  */
 public class NurseDirectory {
+    private ArrayList<Nurse> nurselist;
     
+    public NurseDirectory(){
+        nurselist = new ArrayList<Nurse>();
+    }
+    public ArrayList<Nurse> getReceptionList() {
+        return nurselist;
+        
+    }
+    
+    public ArrayList<Nurse> addReception(Nurse c){
+       
+        nurselist.add(c);
+        return nurselist;
+    }
+     public ArrayList<Nurse> removeReception(Nurse c){
+       
+        nurselist.remove(c);
+        return nurselist;
+    }
 }

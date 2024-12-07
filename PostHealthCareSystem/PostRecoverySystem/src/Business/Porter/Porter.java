@@ -4,10 +4,25 @@
  */
 package Business.Porter;
 
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author samik
  */
-public class Porter {
-    
+public class Porter extends UserAccount{
+    private String deliveryManName;
+
+    public String getDeliveryManName() {
+        return deliveryManName;
+    }
+
+    public void setDeliveryManName(String deliveryManName) {
+        this.deliveryManName = deliveryManName;
+    }
+
+    @Override
+    public String toString() {
+        return this.deliveryManName;
+    }
 }
