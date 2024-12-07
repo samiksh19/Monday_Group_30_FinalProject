@@ -4,18 +4,35 @@
  */
 package ui.AccountantRole;
 
+import Business.Business;
+import Business.UserAccount.UserAccount;
+import Business.WorkRequest.WorkRequest;
+import java.util.List;
+import javax.swing.JPanel;
+
 /**
  *
  * @author dalea
  */
 public class AccountantWorkArea extends javax.swing.JPanel {
-
+    
+    private JPanel userProcessContainer;
+    private Business Business;
+    private UserAccount userAccount;
+    private List<WorkRequest> workRequestList;
     /**
      * Creates new form AccountantWorkArea
      */
-    public AccountantWorkArea() {
+    public AccountantWorkArea(JPanel userProcessContainer, UserAccount userAccount, Business Business) {
         initComponents();
+//        creatingListenerForDelInfo();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.Business = Business;
+//        fillDelRqTable();
     }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.

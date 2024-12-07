@@ -2,19 +2,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.Hospital;
+package ui.HospitalAdmin;
+
+import Business.Business;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
 
 /**
  *
  * @author dalea
  */
-public class ViewEmergencyRequestPanel extends javax.swing.JPanel {
-
+public class HospitalAdminArea extends javax.swing.JPanel {
+    JPanel userProcessContainer;
+    Business business;
+    UserAccount userAccount;
     /**
-     * Creates new form ViewEmergencyRequestPanel
+     * Creates new form HospitalAdminArea
      */
-    public ViewEmergencyRequestPanel() {
+    public HospitalAdminArea(JPanel userProcessContainer, UserAccount userAccount, Business business) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.business=business;
+        this.userAccount = userAccount;   
     }
 
     /**
