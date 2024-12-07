@@ -4,10 +4,67 @@
  */
 package Business.UserAccount;
 
+import Business.Employee.Employee;
+import Business.WorkRequest.WorkList;
+import javax.management.relation.Role;
+
 /**
  *
  * @author samik
  */
 public class UserAccount {
+    private String username;
+    private String password;
+    private Employee employee;
+    private Role role;
+    private WorkList workQueue;
     
+
+    public UserAccount() {
+        workQueue = new WorkList();
+    }
+    
+    
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public WorkList getWorkQueue() {
+        return workQueue;
+    }
+
+    
+    
+    @Override
+    public String toString() {
+        return username;
+    }
 }

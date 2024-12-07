@@ -4,10 +4,28 @@
  */
 package Business.Pharmacy;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author samik
  */
 public class PharmacyInventory {
+    ArrayList<PharmacyMedicine> itemList = new ArrayList<PharmacyMedicine>();
+
+    public ArrayList<PharmacyMedicine> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(ArrayList<PharmacyMedicine> itemList) {
+        this.itemList = itemList;
+    }
     
+    public void addItem(PharmacyMedicine item){
+        itemList.add(item);
+    }
+    
+    public void deleteItem(PharmacyMedicine item){
+        itemList.remove(item);
+    }
 }
