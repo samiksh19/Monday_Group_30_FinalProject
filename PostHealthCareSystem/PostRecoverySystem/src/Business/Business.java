@@ -12,7 +12,7 @@ import Business.LabAssistant.LabAssistantDirectory;
 import Business.MedicalInformation.MedicalInformationDirectory;
 import Business.Nurse.NurseDirectory;
 import Business.Patients.PatientDirectory;
-import Business.Pharmaceuticals.PharmaceuticalDirectory;
+import Business.Pharmaceutical.PharmaceuticalDirectory;
 import Business.Pharmacy.PharmacyDirectory;
 import Business.Porter.PorterDirectory;
 import Business.WorkRequest.WorkList;
