@@ -4,15 +4,18 @@
  */
 package Business.Pharmaceutical;
 
+
 import Business.Porter.Porter;
 import Business.Role.SysAdminRole;
 import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 
+
 /**
  *
  * @author samik
  */
+
 
 public class Inventory {
     ArrayList<Medicines> itemList = new ArrayList<Medicines>();
@@ -33,3 +36,4 @@ public class Inventory {
         itemList.remove(item);
     }
 }
+
