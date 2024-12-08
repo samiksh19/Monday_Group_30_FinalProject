@@ -15,7 +15,7 @@ public class InsuranceWorkRequest extends WorkRequest{
     private String id;
     private int claimAmount;
     private String treatment;
-
+    
     public InsuranceWorkRequest() {
         UUID uuid = UUID.randomUUID();
         id = uuid.toString();
@@ -46,6 +46,4 @@ public class InsuranceWorkRequest extends WorkRequest{
     public void setTreatment(String treatment) {
         this.treatment = treatment;
     }
-    
-    
 }
