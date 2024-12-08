@@ -5,6 +5,7 @@
 package ui.SystemAdmin;
 
 import Business.Business;
+import Business.Dashboard.Dashboard;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -43,27 +44,21 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         btnManageGovernment = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnManageHospital1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         btnManageHospital.setBackground(new java.awt.Color(255, 255, 204));
         btnManageHospital.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        btnManageHospital.setText("Manage Hospital");
+        btnManageHospital.setText("Dashboard");
         btnManageHospital.setBorderPainted(false);
         btnManageHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageHospitalActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 199;
-        gridBagConstraints.ipady = 17;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(29, 200, 0, 0);
-        jPanel1.add(btnManageHospital, gridBagConstraints);
+        jPanel1.add(btnManageHospital, new java.awt.GridBagConstraints());
 
         btnManagePharmaceutical.setBackground(new java.awt.Color(255, 255, 204));
         btnManagePharmaceutical.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -144,6 +139,24 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(64, 17, 0, 0);
         jPanel1.add(jLabel2, gridBagConstraints);
 
+        btnManageHospital1.setBackground(new java.awt.Color(255, 255, 204));
+        btnManageHospital1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnManageHospital1.setText("Manage Hospital");
+        btnManageHospital1.setBorderPainted(false);
+        btnManageHospital1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageHospital1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 199;
+        gridBagConstraints.ipady = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(29, 200, 0, 0);
+        jPanel1.add(btnManageHospital1, gridBagConstraints);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,10 +175,8 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
 
     private void btnManageHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospitalActionPerformed
         // TODO add your handling code here:
-        ManageHospital manageHospitalJPanel =new ManageHospital(userProcessContainer, business);
-        userProcessContainer.add("manageHospitalJPanel",manageHospitalJPanel);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+ Dashboard ad = new Dashboard();
+        System.out.println("Inside admin dashboard");
     }//GEN-LAST:event_btnManageHospitalActionPerformed
 
     private void btnManagePharmaceuticalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePharmaceuticalActionPerformed
@@ -192,10 +203,20 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageGovernmentbtnManageInsuranceProviderlActionPerformed
 
+    private void btnManageHospital1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospital1ActionPerformed
+        // TODO add your handling code here:
+         ManageHospital manageHospitalJPanel =new ManageHospital(userProcessContainer, business);
+        userProcessContainer.add("manageHospitalJPanel",manageHospitalJPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
+    }//GEN-LAST:event_btnManageHospital1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnManageGovernment;
     private javax.swing.JButton btnManageHospital;
+    private javax.swing.JButton btnManageHospital1;
     private javax.swing.JButton btnManagePharmaceutical;
     private javax.swing.JButton btnManagePharmacy;
     private javax.swing.JLabel jLabel2;
