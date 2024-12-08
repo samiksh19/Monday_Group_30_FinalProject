@@ -4,6 +4,7 @@
  */
 package Business.Patients;
 
+import Business.CareGiver.CareGiver;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -17,6 +18,23 @@ public class Patient extends UserAccount{
     private String age;
     private String address;
     private String phone;
+    private CareGiver caregiver;
+
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    public CareGiver getCaregiver() {
+        return caregiver;
+    }
+
+    public void setCaregiver(CareGiver caregiver) {
+        this.caregiver = caregiver;
+    }
 
     public String getPhone() {
         return phone;
@@ -117,8 +135,6 @@ public class Patient extends UserAccount{
         this.severity = severity;
     }
 
-    
-    
     public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
