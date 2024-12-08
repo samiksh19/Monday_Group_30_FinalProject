@@ -117,7 +117,6 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -132,68 +131,32 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
         assignDeliveryPersonLabel = new javax.swing.JLabel();
         declineOrder = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        jPanel1.setBackground(new java.awt.Color(163, 186, 195));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         jLabel10.setText("Message");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 59, 0, 0);
-        jPanel1.add(jLabel10, gridBagConstraints);
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 110, -1));
 
-        message.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        message.setForeground(new java.awt.Color(255, 255, 255));
+        message.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         message.setText("<value>");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 23;
-        gridBagConstraints.ipadx = 216;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 93, 0, 0);
-        jPanel1.add(message, gridBagConstraints);
+        jPanel1.add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 330, -1));
 
-        jLabel12.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setFont(new java.awt.Font("Garamond", 1, 48)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(204, 51, 0));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("APPOINTMENT DETAILS");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 28;
-        gridBagConstraints.ipadx = 338;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 2, 0, 3);
-        jPanel1.add(jLabel12, gridBagConstraints);
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 21, 990, 70));
 
-        jLabel14.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         jLabel14.setText("Status");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 80, 0, 0);
-        jPanel1.add(jLabel14, gridBagConstraints);
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 70, -1));
 
-        status.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        status.setForeground(new java.awt.Color(255, 255, 255));
+        status.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         status.setText("<value>");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 9;
-        gridBagConstraints.ipadx = 149;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 93, 0, 0);
-        jPanel1.add(status, gridBagConstraints);
+        jPanel1.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 340, -1));
 
-        btnBack1.setBackground(new java.awt.Color(255, 255, 204));
+        btnBack1.setBackground(new java.awt.Color(0, 105, 137));
         btnBack1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         btnBack1.setText("Back");
         btnBack1.addActionListener(new java.awt.event.ActionListener() {
@@ -201,15 +164,9 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
                 btnBack1ActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = -6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 12, 0, 0);
-        jPanel1.add(btnBack1, gridBagConstraints);
+        jPanel1.add(btnBack1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 110, 50));
 
-        acceptOrder.setBackground(new java.awt.Color(255, 255, 204));
+        acceptOrder.setBackground(new java.awt.Color(0, 105, 137));
         acceptOrder.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         acceptOrder.setText("Accept Appointment");
         acceptOrder.addActionListener(new java.awt.event.ActionListener() {
@@ -217,13 +174,7 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
                 acceptOrderActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(36, 25, 131, 0);
-        jPanel1.add(acceptOrder, gridBagConstraints);
+        jPanel1.add(acceptOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 210, 60));
 
         assignDeliveryPerson.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         assignDeliveryPerson.setForeground(new java.awt.Color(255, 153, 51));
@@ -232,45 +183,24 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
                 assignDeliveryPersonActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 98;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(41, 92, 0, 0);
-        jPanel1.add(assignDeliveryPerson, gridBagConstraints);
+        jPanel1.add(assignDeliveryPerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 210, -1));
 
-        jButtonAddDeliveryMan.setBackground(new java.awt.Color(255, 255, 204));
+        jButtonAddDeliveryMan.setBackground(new java.awt.Color(0, 105, 137));
         jButtonAddDeliveryMan.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        jButtonAddDeliveryMan.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAddDeliveryMan.setText("Assign");
         jButtonAddDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddDeliveryManActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 14;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(41, 12, 0, 0);
-        jPanel1.add(jButtonAddDeliveryMan, gridBagConstraints);
+        jPanel1.add(jButtonAddDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 208, 120, 40));
 
-        assignDeliveryPersonLabel.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        assignDeliveryPersonLabel.setForeground(new java.awt.Color(255, 255, 255));
+        assignDeliveryPersonLabel.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         assignDeliveryPersonLabel.setText("Assign Doctor");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(45, 16, 0, 0);
-        jPanel1.add(assignDeliveryPersonLabel, gridBagConstraints);
+        jPanel1.add(assignDeliveryPersonLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 160, 30));
 
-        declineOrder.setBackground(new java.awt.Color(255, 255, 204));
+        declineOrder.setBackground(new java.awt.Color(0, 105, 137));
         declineOrder.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         declineOrder.setText("Decline Appointment");
         declineOrder.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -283,33 +213,23 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
                 declineOrderActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 13;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(36, 10, 131, 0);
-        jPanel1.add(declineOrder, gridBagConstraints);
+        jPanel1.add(declineOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 460, 210, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 786, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 419, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 802, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
