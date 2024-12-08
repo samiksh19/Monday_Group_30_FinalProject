@@ -32,6 +32,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
+        System.out.println("System"+system);
         this.setSize(1680, 1050);
     }
 
@@ -189,6 +190,8 @@ public class MainJFrame extends javax.swing.JFrame {
             return;
         }
         else {
+            
+            System.out.println("In else");
            if (userAccount instanceof Patient){
                 container.add("workArea", userAccount.getRole().createWorkArea(container, (Patient)userAccount, system));
             }else if(userAccount instanceof Pharmacy){
