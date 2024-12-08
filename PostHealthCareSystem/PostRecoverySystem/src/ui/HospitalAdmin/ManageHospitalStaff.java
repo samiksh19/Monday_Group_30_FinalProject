@@ -24,6 +24,7 @@ import Business.Role.NurseRole;
 import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
@@ -241,104 +242,121 @@ public class ManageHospitalStaff extends javax.swing.JPanel {
 
     private void btnaddstaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddstaffActionPerformed
         // TODO add your handling code here:
-        if (staff.getText().isEmpty() ) {
-            JOptionPane.showMessageDialog(null, "Enter all fields");
-            return;
-        }
-        String choice = comboStaff.getSelectedItem().toString();
-        if(business.getUserAccountDirectory().checkUsernameUnique(staff.getText())){
-            if(choice.equalsIgnoreCase("Doctor")){
-                Doctor hospitalStaff = new Doctor();
 
-                hospitalStaff.setName(staff.getText());
-                hospitalStaff.setType(choice);
-                hospitalStaff.setDocType(comboDoctor.getSelectedItem().toString());
-                hospitalStaff.setTime(availdoc.getText());
-                hospitalStaff.setUsername(staff.getText());
-                hospitalStaff.setPassword(txtpswrd.getText());
-                hospitalStaff.setRole(new DoctorRole());
+           // Retrieve input values
+            String staffName = staff.getText();
+            String password = txtpswrd.getText();
+            String choice = comboStaff.getSelectedItem().toString();
+            String availability = availdoc.getText(); // Availability for doctors
 
-                business.getUserAccountDirectory().addUserAccount(hospitalStaff);
-                business.getDoctorDirectory().addDoctor(hospitalStaff);
-
-                populateTable();
-                staff.setText("");
-                txtpswrd.setText("");
-
-                availdoc.setText("");
+            // Check for empty fields
+            if (staffName.isEmpty() || password.isEmpty() || choice.isEmpty()) {
+                JOptionPane.showMessageDialog(null, 
+                    "Please fill in all fields:\n" +
+                    "1. Staff Name\n" +
+                    "2. Password\n" +
+                    "3. Role Selection");
+                return;
             }
-            if(choice.equalsIgnoreCase("Nurse")){
-                Nurse hospitalStaff = new Nurse();
 
-                hospitalStaff.setName(staff.getText());
-                hospitalStaff.setType(choice);
-                hospitalStaff.setUsername(staff.getText());
-                hospitalStaff.setPassword(txtpswrd.getText());
-                hospitalStaff.setRole(new NurseRole());
-                business.getUserAccountDirectory().addUserAccount(hospitalStaff);
-                business.getNurseDirectory().addReception(hospitalStaff);
-
-                populateTable();
-                staff.setText("");
-                txtpswrd.setText("");
-
-                availdoc.setText("");
+            // Additional validation if choice is "Doctor"
+            if (choice.equalsIgnoreCase("Doctor") && availability.isEmpty()) {
+                JOptionPane.showMessageDialog(null, 
+                    "Availability is mandatory for Doctors. Please provide availability time.");
+                return;
             }
-            if(choice.equalsIgnoreCase("Ambulance")){
-                AmbulanceDriver hospitalStaff = new AmbulanceDriver();
 
-                hospitalStaff.setAmbulanceDriverName(staff.getText());
-                hospitalStaff.setType(choice);
-                hospitalStaff.setUsername(staff.getText());
-                hospitalStaff.setPassword(txtpswrd.getText());
-                hospitalStaff.setRole(new AmbulanceDriverRole());
-                business.getUserAccountDirectory().addUserAccount(hospitalStaff);
-                business.getAmbulanceDirectory().addAmbulanceDriver(hospitalStaff);
-
-                populateTable();
-                staff.setText("");
+            // Validate password strength
+            boolean PASSWORD_PATTERN = Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=~|?])(?=\\S+$).{8,}$", password);
+            if (!PASSWORD_PATTERN) {
+                JOptionPane.showMessageDialog(null, 
+                    "Create a strong password with the following requirements:\n" +
+                    "1. At least 8 characters long.\n" +
+                    "2. Includes uppercase and lowercase letters.\n" +
+                    "3. Contains at least one number.\n" +
+                    "4. Has at least one special character (!@#$%^&+=~|).");
                 txtpswrd.setText("");
-
-                availdoc.setText("");
+                return;
             }
-            if(choice.equalsIgnoreCase("Lab")){
-                LabAssistant hospitalStaff = new LabAssistant();
 
-                hospitalStaff.setLabAssistantName(staff.getText());
-                hospitalStaff.setType(choice);
-                hospitalStaff.setUsername(staff.getText());
-                hospitalStaff.setPassword(txtpswrd.getText());
-                hospitalStaff.setRole(new LabExaminerRole());
-                business.getUserAccountDirectory().addUserAccount(hospitalStaff);
-                business.getLabAssistantDirectory().addLabAssistant(hospitalStaff);
-
-                populateTable();
-                staff.setText("");
-                txtpswrd.setText("");
-
-                availdoc.setText("");
+            // Check if the username is unique
+            if (!business.getUserAccountDirectory().checkUsernameUnique(staffName)) {
+                JOptionPane.showMessageDialog(null, 
+                    "The username \"" + staffName + "\" already exists. Please choose a different username.");
+                return;
             }
-            if(choice.equalsIgnoreCase("Account")){
-                Account hospitalStaff = new Account();
-                hospitalStaff.setAccountName(staff.getText());
-                hospitalStaff.setType(choice);
-                hospitalStaff.setUsername(staff.getText());
-                hospitalStaff.setPassword(txtpswrd.getText());
-                hospitalStaff.setRole(new AccountantRole());
-                business.getUserAccountDirectory().addUserAccount(hospitalStaff);
-                business.getAccountDirectory().addAccount(hospitalStaff);
 
-                populateTable();
-                staff.setText("");
-                txtpswrd.setText("");
+            // Add staff based on role
+            switch (choice.toLowerCase()) {
+                case "doctor":
+                    Doctor doctor = new Doctor();
+                    doctor.setName(staffName);
+                    doctor.setType(choice);
+                    doctor.setDocType(comboDoctor.getSelectedItem().toString());
+                    doctor.setTime(availability);
+                    doctor.setUsername(staffName);
+                    doctor.setPassword(password);
+                    doctor.setRole(new DoctorRole());
+                    business.getUserAccountDirectory().addUserAccount(doctor);
+                    business.getDoctorDirectory().addDoctor(doctor);
+                    break;
 
-                availdoc.setText("");
+                case "nurse":
+                    Nurse nurse = new Nurse();
+                    nurse.setName(staffName);
+                    nurse.setType(choice);
+                    nurse.setUsername(staffName);
+                    nurse.setPassword(password);
+                    nurse.setRole(new NurseRole());
+                    business.getUserAccountDirectory().addUserAccount(nurse);
+                    business.getNurseDirectory().addReception(nurse);
+                    break;
+
+                case "ambulance":
+                    AmbulanceDriver driver = new AmbulanceDriver();
+                    driver.setAmbulanceDriverName(staffName);
+                    driver.setType(choice);
+                    driver.setUsername(staffName);
+                    driver.setPassword(password);
+                    driver.setRole(new AmbulanceDriverRole());
+                    business.getUserAccountDirectory().addUserAccount(driver);
+                    business.getAmbulanceDirectory().addAmbulanceDriver(driver);
+                    break;
+
+                case "lab":
+                    LabAssistant labAssistant = new LabAssistant();
+                    labAssistant.setLabAssistantName(staffName);
+                    labAssistant.setType(choice);
+                    labAssistant.setUsername(staffName);
+                    labAssistant.setPassword(password);
+                    labAssistant.setRole(new LabExaminerRole());
+                    business.getUserAccountDirectory().addUserAccount(labAssistant);
+                    business.getLabAssistantDirectory().addLabAssistant(labAssistant);
+                    break;
+
+                case "account":
+                    Account account = new Account();
+                    account.setAccountName(staffName);
+                    account.setType(choice);
+                    account.setUsername(staffName);
+                    account.setPassword(password);
+                    account.setRole(new AccountantRole());
+                    business.getUserAccountDirectory().addUserAccount(account);
+                    business.getAccountDirectory().addAccount(account);
+                    break;
+
+                default:
+                    JOptionPane.showMessageDialog(null, "Invalid staff type selected.");
+                    return;
             }
-        }
 
-        else{
-            JOptionPane.showMessageDialog(null, "Username " + staff.getText() + " exists");
-        }
+            // Clear fields and update table
+            populateTable();
+            staff.setText("");
+            txtpswrd.setText("");
+            availdoc.setText("");
+
+            JOptionPane.showMessageDialog(null, "Staff member added successfully!");
     }//GEN-LAST:event_btnaddstaffActionPerformed
 
 
