@@ -37,7 +37,7 @@ public class Dashboard extends JFrame {
         business = db4OUtil.retrieveSystem();
 
         //window
-        setTitle("Dashboard");
+        setTitle("Severity Dashboard");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         int Critical = 0;
@@ -63,15 +63,19 @@ public class Dashboard extends JFrame {
         }
 
         System.out.println("Critcal:" + Critical);
-        lblCritical = new JLabel("Critical Patients: " + Critical);
+        lblCritical = new JLabel("Critical: " + Critical);
+        lblSevere = new JLabel("Severe: " + Severe);
+        lblMild = new JLabel("Mild: " + Mild);
+        lblModerate = new JLabel("Moderate: " + Moderate);
+        lblStable=new JLabel("Stable: "+Stable);
         DefaultPieDataset dataset = new DefaultPieDataset();
         dataset.setValue("Critical", Critical);
-        dataset.setValue("Severe", Critical);
-        dataset.setValue("Mild", Critical);
-        dataset.setValue("Moderate", Critical);
-        dataset.setValue("Stable", Critical);
+        dataset.setValue("Severe", Severe);
+        dataset.setValue("Mild", Mild);
+        dataset.setValue("Moderate", Moderate);
+        dataset.setValue("Stable", Stable);
 
-        JFreeChart chart = ChartFactory.createPieChart("Dashboard", dataset, true, false, false);
+        JFreeChart chart = ChartFactory.createPieChart("Severity Patient Dashboard", dataset, true, false, false);
         PiePlot plot = (PiePlot) chart.getPlot();
         plot.setSectionPaint("Critical", new Color(79, 129, 189)); // blue color
         plot.setSectionPaint("Severe", new Color(155, 187, 89)); // green color
