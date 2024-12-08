@@ -34,8 +34,4 @@ public class PharmaceuticalDirectory {
     public void deletePharmaceutical(Pharmaceutical pharma) {
         pharmaceuticalList.remove(pharma);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/Samiksha
