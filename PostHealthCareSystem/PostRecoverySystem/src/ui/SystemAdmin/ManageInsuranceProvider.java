@@ -11,6 +11,7 @@ import Business.Role.InsuranceAdminRole;
 import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
@@ -278,27 +279,59 @@ public class ManageInsuranceProvider extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        if (userNameTextfield.getText().isEmpty() || passwordTextfield.getText().isEmpty() || deliveryManNameTextfield.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Enter all fields");
+
+        // Retrieve input fields
+        String userName = userNameTextfield.getText();
+        String password = passwordTextfield.getText();
+        String insuranceProviderName = deliveryManNameTextfield.getText();
+
+        // Validation for empty fields
+        if (userName.isEmpty() || password.isEmpty() || insuranceProviderName.isEmpty()) {
+            JOptionPane.showMessageDialog(null, 
+                "Please fill in all fields:\n" +
+                "1. Username\n" +
+                "2. Password\n" +
+                "3. Insurance Provider Name");
             return;
         }
-        if (business.getUserAccountDirectory().checkUsernameUnique(userNameTextfield.getText())) {
+
+        // Validation for strong password
+        boolean PASSWORD_PATTERN = Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=~|?])(?=\\S+$).{8,}$", password);
+        if (!PASSWORD_PATTERN) {
+            JOptionPane.showMessageDialog(null, 
+                "Create a strong password with the following requirements:\n" +
+                "1. At least 8 characters long.\n" +
+                "2. Includes uppercase and lowercase letters.\n" +
+                "3. Contains at least one number.\n" +
+                "4. Has at least one special character (!@#$%^&+=~|).");
+            passwordTextfield.setText("");
+            return;
+        }
+
+        // Check if the username is unique
+        if (business.getUserAccountDirectory().checkUsernameUnique(userName)) {
+            // Create new InsuranceBody
             InsuranceBody insuranceAdmin = new InsuranceBody();
-            insuranceAdmin.setInsuranceProviderName(deliveryManNameTextfield.getText());
-            insuranceAdmin.setUsername(userNameTextfield.getText());
-            insuranceAdmin.setPassword(passwordTextfield.getText());
+            insuranceAdmin.setInsuranceProviderName(insuranceProviderName);
+            insuranceAdmin.setUsername(userName);
+            insuranceAdmin.setPassword(password);
             insuranceAdmin.setRole(new InsuranceAdminRole());
+
+            // Add to directories
             business.getUserAccountDirectory().addUserAccount(insuranceAdmin);
             business.getInsuranceProviderDirectory().addInsuranceProvider(insuranceAdmin);
 
+            // Refresh table and clear fields
             fillTable();
             userNameTextfield.setText("");
             passwordTextfield.setText("");
             deliveryManNameTextfield.setText("");
-        } else {
-            JOptionPane.showMessageDialog(null, "Username " + userNameTextfield.getText() + " exists");
-        }
 
+            JOptionPane.showMessageDialog(null, "Insurance Provider account created successfully!");
+        } else {
+            JOptionPane.showMessageDialog(null, 
+                "The username \"" + userName + "\" already exists. Please choose a different username.");
+        }
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
