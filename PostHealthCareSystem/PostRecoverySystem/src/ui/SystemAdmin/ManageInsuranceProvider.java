@@ -35,7 +35,7 @@ public class ManageInsuranceProvider extends javax.swing.JPanel {
         creatingListenerForModification();
         this.userProcessContainer = userProcessContainer;
         this.business = business;
-        //fillTable();
+        fillTable();
     }
 
     private void fillTable() {

@@ -70,7 +70,8 @@ public class PatientRecords extends javax.swing.JPanel {
     private void print() {
         try {
             Document doc = new Document();
-            PdfWriter.getInstance(doc, new FileOutputStream("/Downloads/Report.pdf"));
+            String filePath = System.getProperty("user.home") + "/Downloads/Report.pdf";
+             PdfWriter.getInstance(doc, new FileOutputStream(filePath));
             doc.open();
             PdfPTable pdfTable = new PdfPTable(tblMenu.getColumnCount());
             //adding table headers

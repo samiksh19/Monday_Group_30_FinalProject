@@ -43,8 +43,8 @@ public class InsuranceClaimApprovalForm extends javax.swing.JPanel {
         patient = (Patient) userAccount;
         insuranceProviderDirectory = business.getInsuranceProviderDirectory();
         treatmentFillList = new ArrayList<String>();
-//        fillDropDownList(insuranceProviderDirectory.getInsuranceProviderList());
-//        fillTreatmentList(treatmentFillList);
+ fillDropDownList(insuranceProviderDirectory.getInsuranceProviderList());
+      fillTreatmentList(treatmentFillList);
     }
         
     public void fillDropDownList(ArrayList<InsuranceBody> insuranceProviderList) {
@@ -62,29 +62,29 @@ public class InsuranceClaimApprovalForm extends javax.swing.JPanel {
         }
     }
     
-//    private boolean creatingOrder() {
-//        InsuranceWorkRequest orderWorkRequest = new InsuranceWorkRequest();
-//        orderWorkRequest.setClaimAmount(Integer.parseInt(amount.getText()));
-//        orderWorkRequest.setPatientName(patientName.getText());
-//        orderWorkRequest.setTreatment(treatmentList.getSelectedItem().toString());
-//            orderWorkRequest.setMessage("Claim Approval");
-//            if (patient != null) {
-//                orderWorkRequest.setPatient(patient);
-//            } else {
-//                return false;
-//            }
-//            InsuranceBody insurance = insuranceProviderDirectory.getInsuranceProviderList().get(indexInsuranceAdmin);
-//            
-//            if (insurance != null) {
-//                orderWorkRequest.setInsurance(insurance);                
-//            } else {
-//                return false;
-//            }
-//            orderWorkRequest.setRequestDate(new Date());
-//            orderWorkRequest.setStatus("Request to Insurance Admin");
-//            business.getWorkQueue().addWorkRequest(orderWorkRequest);
-//            return true;
-//    }
+    private boolean creatingOrder() {
+        InsuranceWorkRequest orderWorkRequest = new InsuranceWorkRequest();
+        orderWorkRequest.setClaimAmount(Integer.parseInt(amount.getText()));
+        orderWorkRequest.setPatientName(patientName.getText());
+        orderWorkRequest.setTreatment(treatmentList.getSelectedItem().toString());
+            orderWorkRequest.setMessage("Claim Approval");
+            if (patient != null) {
+                orderWorkRequest.setPatient(patient);
+            } else {
+                return false;
+            }
+            InsuranceBody insurance = insuranceProviderDirectory.getInsuranceProviderList().get(indexInsuranceAdmin);
+            
+            if (insurance != null) {
+                orderWorkRequest.setInsurance(insurance);                
+            } else {
+                return false;
+            }
+            orderWorkRequest.setRequestDate(new Date());
+            orderWorkRequest.setStatus("Request to Insurance Admin");
+            business.getWorkQueue().addWorkRequest(orderWorkRequest);
+            return true;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -266,11 +266,12 @@ public class InsuranceClaimApprovalForm extends javax.swing.JPanel {
 
     private void sendToCDCbtnsendToInsuranceAdminbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendToCDCbtnsendToInsuranceAdminbtnActionPerformed
         // TODO add your handling code here:
-        if (claimAmount.getText().isEmpty() || patientName.getText().isEmpty() || indexInsuranceAdmin==-1 || indexTreatment == -1) {
+        // TODO add your handling code here:
+         if (claimAmount.getText().isEmpty() || patientName.getText().isEmpty() || indexInsuranceAdmin==-1 || indexTreatment == -1) {
             JOptionPane.showMessageDialog(null, "Enter all fields");
         }
         InsuranceWorkRequest orderWorkRequest = new InsuranceWorkRequest();
-//        creatingOrder();
+        creatingOrder();
         amount.setText("");
         patientName.setText("");
         JOptionPane.showMessageDialog(null, "Sent to Insurance Admin");
