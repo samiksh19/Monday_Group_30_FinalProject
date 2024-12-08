@@ -189,7 +189,6 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         else {
            if (userAccount instanceof Patient){
-               
                 container.add("workArea", userAccount.getRole().createWorkArea(container, (Patient)userAccount, system));
             }else if(userAccount instanceof Pharmacy){
                 container.add("workArea", userAccount.getRole().createWorkArea(container, (Pharmacy)userAccount, system));
