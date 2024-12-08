@@ -11,6 +11,7 @@ import Business.Role.HospitalAdminRole;
 import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
@@ -308,21 +309,21 @@ public class ManageHospital extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1040, Short.MAX_VALUE)
+            .addGap(0, 1195, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 77, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 78, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
+            .addGap(0, 709, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 44, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 45, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -385,34 +386,72 @@ public class ManageHospital extends javax.swing.JPanel {
 
     private void btnDeliveryManbtnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeliveryManbtnCreateActionPerformed
         // TODO add your handling code here:
-        if (userNameTextfield.getText().isEmpty() || passwordTextfield.getText().isEmpty() || deliveryManNameTextfield.getText().isEmpty() || locationTxtField.getText().isEmpty() || contacttxt.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Enter all fields");
-            return;
-        }
-        if (contacttxt.getText().length() != 10) {
-            JOptionPane.showMessageDialog(null, "Enter a valid phone number");
-            return;
-        }
-        if (business.getUserAccountDirectory().checkUsernameUnique(userNameTextfield.getText())) {
-            HospitalAdmin hospitalAdmin = new HospitalAdmin();
-            hospitalAdmin.setHospitalName(deliveryManNameTextfield.getText());
-            hospitalAdmin.setAddress(locationTxtField.getText());
-            hospitalAdmin.setUsername(userNameTextfield.getText());
-            hospitalAdmin.setPassword(passwordTextfield.getText());
-            hospitalAdmin.setContactNumber(contacttxt.getText());
-            hospitalAdmin.setRole(new HospitalAdminRole());
-            business.getUserAccountDirectory().addUserAccount(hospitalAdmin);
-            business.getHospitalDirectory().addHospital(hospitalAdmin);
 
-            fillTable();
-            userNameTextfield.setText("");
-            passwordTextfield.setText("");
-            deliveryManNameTextfield.setText("");
-            locationTxtField.setText("");
-            contacttxt.setText("");
-        } else {
-            JOptionPane.showMessageDialog(null, "Username " + userNameTextfield.getText() + " exists");
-        }
+                // Retrieving input fields
+         String userName = userNameTextfield.getText();
+         String password = passwordTextfield.getText();
+         String deliveryManName = deliveryManNameTextfield.getText();
+         String location = locationTxtField.getText();
+         String contact = contacttxt.getText();
+
+         // Validation for empty fields
+         if (userName.trim().isEmpty() || password.trim().isEmpty() || deliveryManName.trim().isEmpty() || location.trim().isEmpty() || contact.trim().isEmpty()) {
+             JOptionPane.showMessageDialog(null, "Enter all fields");
+             return;
+         }
+
+         // Validation for contact number length
+         if (contact.length() != 10 || !contact.matches("\\d+")) {
+             JOptionPane.showMessageDialog(null, "Enter a valid 10-digit phone number");
+             return;
+         }
+
+         // Validation for strong password
+         boolean PASSWORD_PATTERN = Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=~|?])(?=\\S+$).{8,}$", password);
+         if (!PASSWORD_PATTERN) {
+         JOptionPane.showMessageDialog(null, 
+         "Create a strong password with the following requirements:\n" +
+         "1. At least 8 characters long.\n" +
+         "2. Includes uppercase and lowercase letters.\n" +
+         "3. Contains at least one number.\n" +
+         "4. Has at least one special character (!@#$%^&+=~|).");        passwordTextfield.setText("");
+             return;
+         }
+
+         // Validation for delivery man name using alphabets only
+         Pattern namePattern = Pattern.compile("^[a-zA-Z ]+$");
+         if (!namePattern.matcher(deliveryManName.trim()).matches()) {
+             JOptionPane.showMessageDialog(null, "Please enter a valid name for the User");
+             return;
+         }
+
+         // Check if the username is unique
+         if (business.getUserAccountDirectory().checkUsernameUnique(userName)) {
+             // Create new HospitalAdmin
+             HospitalAdmin hospitalAdmin = new HospitalAdmin();
+             hospitalAdmin.setHospitalName(deliveryManName);
+             hospitalAdmin.setAddress(location);
+             hospitalAdmin.setUsername(userName);
+             hospitalAdmin.setPassword(password);
+             hospitalAdmin.setContactNumber(contact);
+             hospitalAdmin.setRole(new HospitalAdminRole());
+
+             // Add to directories
+             business.getUserAccountDirectory().addUserAccount(hospitalAdmin);
+             business.getHospitalDirectory().addHospital(hospitalAdmin);
+
+             // Refresh table and clear fields
+             fillTable();
+             userNameTextfield.setText("");
+             passwordTextfield.setText("");
+             deliveryManNameTextfield.setText("");
+             locationTxtField.setText("");
+             contacttxt.setText("");
+
+             JOptionPane.showMessageDialog(null, "User account created successfully!");
+         } else {
+             JOptionPane.showMessageDialog(null, "Username " + userName + " already exists. Please choose a different username.");
+         }
     }//GEN-LAST:event_btnDeliveryManbtnCreateActionPerformed
 
 
