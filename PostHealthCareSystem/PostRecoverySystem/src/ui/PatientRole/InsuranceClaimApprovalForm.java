@@ -62,29 +62,29 @@ public class InsuranceClaimApprovalForm extends javax.swing.JPanel {
         }
     }
     
-//    private boolean creatingOrder() {
-//        InsuranceWorkRequest orderWorkRequest = new InsuranceWorkRequest();
-//        orderWorkRequest.setClaimAmount(Integer.parseInt(amount.getText()));
-//        orderWorkRequest.setPatientName(patientName.getText());
-//        orderWorkRequest.setTreatment(treatmentList.getSelectedItem().toString());
-//            orderWorkRequest.setMessage("Claim Approval");
-//            if (patient != null) {
-//                orderWorkRequest.setPatient(patient);
-//            } else {
-//                return false;
-//            }
-//            InsuranceBody insurance = insuranceProviderDirectory.getInsuranceProviderList().get(indexInsuranceAdmin);
-//            
-//            if (insurance != null) {
-//                orderWorkRequest.setInsurance(insurance);                
-//            } else {
-//                return false;
-//            }
-//            orderWorkRequest.setRequestDate(new Date());
-//            orderWorkRequest.setStatus("Request to Insurance Admin");
-//            business.getWorkQueue().addWorkRequest(orderWorkRequest);
-//            return true;
-//    }
+    private boolean creatingOrder() {
+        InsuranceWorkRequest orderWorkRequest = new InsuranceWorkRequest();
+        orderWorkRequest.setClaimAmount(Integer.parseInt(amount.getText()));
+        orderWorkRequest.setPatientName(patientName.getText());
+        orderWorkRequest.setTreatment(treatmentList.getSelectedItem().toString());
+            orderWorkRequest.setMessage("Claim Approval");
+            if (patient != null) {
+                orderWorkRequest.setPatient(patient);
+            } else {
+                return false;
+            }
+            InsuranceBody insurance = insuranceProviderDirectory.getInsuranceProviderList().get(indexInsuranceAdmin);
+            
+            if (insurance != null) {
+                orderWorkRequest.setInsurance(insurance);                
+            } else {
+                return false;
+            }
+            orderWorkRequest.setRequestDate(new Date());
+            orderWorkRequest.setStatus("Request to Insurance Admin");
+            business.getWorkQueue().addWorkRequest(orderWorkRequest);
+            return true;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

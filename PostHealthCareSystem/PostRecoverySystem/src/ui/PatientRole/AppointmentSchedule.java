@@ -86,7 +86,14 @@ public class AppointmentSchedule extends javax.swing.JPanel {
             }
             Nurse nurse = nurseDirectory.getReceptionList().get(index);
             Doctor doctor = doctorDirectory.getDoctorList().get(rstCombo.getSelectedIndex());
-            Account account = accountDirectory.getAccountList().get(0);
+//            Account account = accountDirectory.getAccountList().get(0);
+            Account account;
+            try {
+                account = accountDirectory.getAccountList().get(0);
+            } catch (IndexOutOfBoundsException e) {
+                JOptionPane.showMessageDialog(null, "Account not found.");
+                return false;
+            }
             if (nurse != null) {
                 orderWorkRequest.setReception(nurse);
                 orderWorkRequest.setDoctor(doctor);
