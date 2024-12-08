@@ -14,7 +14,7 @@ public class NurseDirectory {
     private ArrayList<Nurse> nurselist;
     
     public NurseDirectory(){
-        nurselist = new ArrayList<Nurse>();
+        nurselist = new ArrayList<>();
     }
     public ArrayList<Nurse> getReceptionList() {
         return nurselist;
