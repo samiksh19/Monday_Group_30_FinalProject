@@ -85,6 +85,7 @@ public class ProcessWorkRequestPanel extends javax.swing.JPanel {
     private void sendMail(){
         String from = "dalealphonso7@gmail.com";
         String pass = "Dale@alphaMS24";
+        System.out.print("Username"+workRequest.getPatient().getEmail());
         String[] to = { workRequest.getPatient().getEmail() }; // list of recipient email addresses
         String subject = "LAB RESULTS";
         String body = workRequest.getTestType()+" results are now ready, "+report[r.nextInt(4)];
@@ -102,7 +103,8 @@ public class ProcessWorkRequestPanel extends javax.swing.JPanel {
         props.put("mail.smtp.port", "587");
         props.put("mail.smtp.auth", "true");
 
-        Session session = Session.getDefaultInstance(props);
+        Session session = Session.getInstance(props);
+        session.setDebug(true);
         MimeMessage message = new MimeMessage(session);
 
         try {

@@ -6,9 +6,14 @@ package ui.LabAssistant;
 
 import Business.Business;
 import Business.UserAccount.UserAccount;
+import Business.WorkRequest.LabWorkRequest;
 import Business.WorkRequest.WorkRequest;
+import java.awt.CardLayout;
 import java.util.List;
 import javax.swing.JPanel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,18 +25,60 @@ public class LabAssistantWorkArea extends javax.swing.JPanel {
      * Creates new form LabAssistantWorkArea
      */
     private JPanel userProcessContainer;
-    private Business newlife;
+    private Business business;
     private UserAccount userAccount;
     private List<WorkRequest> workRequestList;
 
     public LabAssistantWorkArea(JPanel userProcessContainer, UserAccount userAccount, Business business) {
         initComponents();
-//        creatingListenerForDelInfo();
+        creatingListenerForDelInfo();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
-        this.newlife = newlife;
-//        fillDelRqTable();
+        this.business = business;
+        fillDelRqTable();
         System.out.println("Done fillDelRqTable ");
+    }
+
+    private void fillDelRqTable() {
+        DefaultTableModel model = (DefaultTableModel) patientTable.getModel();
+        model.setRowCount(0);
+        workRequestList = business.getWorkQueue().getWorkRequestListabAssistant(userAccount);
+//        System.out.println("workRequestList: "+workRequestList);
+        for (WorkRequest request : workRequestList) {
+            Object[] row = new Object[patientTable.getColumnCount()];
+            row[0] = request;
+            row[1] = request.getPatient();
+            row[2] = request.getHospitalAdmin();
+            row[3] = request.getLabAssistant();
+            row[4] = request.getStatus();
+            model.addRow(row);
+
+        }
+    }
+
+    private void creatingListenerForDelInfo() {
+        System.out.println("Start Listener ");
+        patientTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                int selectedRow = patientTable.getSelectedRow();
+                System.out.println("Hello " + selectedRow);
+                if (selectedRow >= 0) {
+                    WorkRequest request = (WorkRequest) patientTable.getValueAt(selectedRow, 0);
+                    System.out.println(patientTable.getValueAt(selectedRow, 0) + " Hello req  " + request);
+                    if (request instanceof LabWorkRequest) {
+                        LabWorkRequest orderWorkRequest = (LabWorkRequest) patientTable.getValueAt(selectedRow, 0);
+                        if (orderWorkRequest != null) {
+                            System.out.println(patientTable.getValueAt(selectedRow, 0) + " Inside  " + request);
+                            ProcessWorkRequestPanel processOrderJPanel = new ProcessWorkRequestPanel(userProcessContainer, business, userAccount, orderWorkRequest);
+                            userProcessContainer.add("ProcessOrderJPanel", processOrderJPanel);
+                            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                            layout.next(userProcessContainer);
+                        }
+                    }
+
+                }
+            }
+        });
     }
 
     /**
