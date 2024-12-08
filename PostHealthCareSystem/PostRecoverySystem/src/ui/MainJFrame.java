@@ -32,6 +32,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
+        System.out.println("System: "+system);
         this.setSize(1680, 1050);
     }
 
@@ -183,7 +184,7 @@ public class MainJFrame extends javax.swing.JFrame {
         //Step1: Check in the system admin user account directory if you have the user
 System.out.println("HI");
         UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
-System.out.println("HI2");
+//System.out.println("HI2"+userAccount.getUsername());
         if (userAccount == null){
             JOptionPane.showMessageDialog(null, "Invalid credentials");
             return;
