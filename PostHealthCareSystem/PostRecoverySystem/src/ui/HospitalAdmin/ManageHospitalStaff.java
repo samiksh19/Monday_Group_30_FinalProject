@@ -108,10 +108,12 @@ public class ManageHospitalStaff extends javax.swing.JPanel {
         availdoc = new javax.swing.JTextField();
         btnaddstaff = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(163, 186, 195));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnback.setBackground(new java.awt.Color(255, 255, 204));
+        btnback.setBackground(new java.awt.Color(0, 105, 137));
+        btnback.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnback.setForeground(new java.awt.Color(255, 255, 255));
         btnback.setText("BACK");
         btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,15 +123,15 @@ public class ManageHospitalStaff extends javax.swing.JPanel {
         jPanel1.add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 21, 111, 48));
 
         jLabel1.setBackground(new java.awt.Color(166, 206, 55));
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 51, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MANAGE HOSPITAL STAFF");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 26, 578, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 578, -1));
 
-        jScrollPane1.setBackground(new java.awt.Color(204, 255, 204));
+        jScrollPane1.setBackground(new java.awt.Color(205, 181, 220));
 
-        tblMenu.setBackground(new java.awt.Color(204, 255, 204));
+        tblMenu.setBackground(new java.awt.Color(203, 213, 220));
         tblMenu.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -156,79 +158,69 @@ public class ManageHospitalStaff extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblMenu);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 87, 789, 146));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 87, 1190, 146));
 
         jLabel2.setBackground(new java.awt.Color(166, 206, 55));
-        jLabel2.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         jLabel2.setText("Staff Name");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 259, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, -1, -1));
 
-        enterpriseLabel1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        enterpriseLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        enterpriseLabel1.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         enterpriseLabel1.setText("Staff Type");
-        jPanel1.add(enterpriseLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 304, -1, -1));
+        jPanel1.add(enterpriseLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(166, 206, 55));
-        jLabel4.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Password");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 347, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
 
-        enterpriseLabel2.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        enterpriseLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        enterpriseLabel2.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         enterpriseLabel2.setText("Doctor Type");
-        jPanel1.add(enterpriseLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 438, -1, -1));
+        jPanel1.add(enterpriseLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 540, -1, -1));
 
         jLabel5.setBackground(new java.awt.Color(166, 206, 55));
-        jLabel5.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Doctor Availability");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 493, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 610, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("***** Fill the below details only for Doctor *****");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 390, 746, -1));
-        jPanel1.add(staff, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 259, 126, -1));
-        jPanel1.add(txtpswrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 347, 126, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, 1160, -1));
+        jPanel1.add(staff, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 290, 380, -1));
+        jPanel1.add(txtpswrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 380, -1));
 
-        jPanel1.add(comboStaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 305, 130, -1));
+        jPanel1.add(comboStaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 380, -1));
 
-        jPanel1.add(comboDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 439, 130, -1));
-        jPanel1.add(availdoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 493, 126, -1));
+        jPanel1.add(comboDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 550, 370, -1));
+        jPanel1.add(availdoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 610, 370, -1));
 
-        btnaddstaff.setBackground(new java.awt.Color(255, 255, 204));
+        btnaddstaff.setBackground(new java.awt.Color(0, 105, 137));
+        btnaddstaff.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnaddstaff.setForeground(new java.awt.Color(255, 255, 255));
         btnaddstaff.setText("ADD STAFF");
         btnaddstaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnaddstaffActionPerformed(evt);
             }
         });
-        jPanel1.add(btnaddstaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(612, 483, 198, 48));
+        jPanel1.add(btnaddstaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 700, 198, 48));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 844, Short.MAX_VALUE)
+            .addGap(0, 1280, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 844, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 587, Short.MAX_VALUE)
+            .addGap(0, 806, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
