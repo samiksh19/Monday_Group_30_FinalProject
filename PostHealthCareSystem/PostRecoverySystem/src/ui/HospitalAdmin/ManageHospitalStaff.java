@@ -75,9 +75,9 @@ public class ManageHospitalStaff extends javax.swing.JPanel {
     
     private void fillRstStaff(){
         comboStaff.addItem("Doctor");
+        comboStaff.addItem("Nurse");
         comboStaff.addItem("Lab");
         comboStaff.addItem("Ambulance");
-        comboStaff.addItem("Reception");
         comboStaff.addItem("Account");
     }    /**
      * This method is called from within the constructor to initialize the form.
