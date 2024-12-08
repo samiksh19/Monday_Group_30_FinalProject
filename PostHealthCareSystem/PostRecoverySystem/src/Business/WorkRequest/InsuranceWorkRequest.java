@@ -4,10 +4,48 @@
  */
 package Business.WorkRequest;
 
+import java.util.UUID;
+
 /**
  *
  * @author samik
  */
-public class InsuranceWorkRequest {
+public class InsuranceWorkRequest extends WorkRequest{
+    private String patientName;
+    private String id;
+    private int claimAmount;
+    private String treatment;
+
+    public InsuranceWorkRequest() {
+        UUID uuid = UUID.randomUUID();
+        id = uuid.toString();
+    }
+    
+    
+
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    public int getClaimAmount() {
+        return claimAmount;
+    }
+
+    public void setClaimAmount(int claimAmount) {
+        this.claimAmount = claimAmount;
+    }
+
+    public String getTreatment() {
+        return treatment;
+    }
+
+    public void setTreatment(String treatment) {
+        this.treatment = treatment;
+    }
+    
     
 }
