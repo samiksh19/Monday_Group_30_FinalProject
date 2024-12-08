@@ -27,18 +27,18 @@ public class HospitalAdminArea extends javax.swing.JPanel {
         this.userAccount = userAccount;   
     }
      private void manageInfo() {
-//        UpdateHospitalInfoPanel updateRestaurantInfoJPanel = new UpdateHospitalInfoPanel(userProcessContainer,business, userAccount);
-//        userProcessContainer.add("UpdateRestaurantInfoJPanel",updateRestaurantInfoJPanel);
-//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
+        UpdateHospitalInfoPanel updateRestaurantInfoJPanel = new UpdateHospitalInfoPanel(userProcessContainer,business, userAccount);
+        userProcessContainer.add("UpdateRestaurantInfoJPanel",updateRestaurantInfoJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }
 
     
     private void manageEmergencyRequest() {
-//        ViewEmergencyRequestPanel viewOrderDetails = new ViewEmergencyRequestPanel(userProcessContainer,business,userAccount);
-//        userProcessContainer.add("ViewOrderDetails",viewOrderDetails);
-//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
+        ViewEmergencyRequestPanel viewOrderDetails = new ViewEmergencyRequestPanel(userProcessContainer,business,userAccount);
+        userProcessContainer.add("ViewOrderDetails",viewOrderDetails);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }
     
     private void manageHospitalStaff() {

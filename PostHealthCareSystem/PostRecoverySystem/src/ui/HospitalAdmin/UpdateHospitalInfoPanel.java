@@ -4,6 +4,12 @@
  */
 package ui.HospitalAdmin;
 
+import Business.Business;
+import Business.Hospital.HospitalAdmin;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author dalea
@@ -13,10 +19,35 @@ public class UpdateHospitalInfoPanel extends javax.swing.JPanel {
     /**
      * Creates new form UpdateHospitalInfoPanel
      */
-    public UpdateHospitalInfoPanel() {
+    JPanel userProcessContainer;
+    Business business;
+    UserAccount userAccount;
+    HospitalAdmin hospitalAdmin;
+     public UpdateHospitalInfoPanel(JPanel userProcessContainer, Business business, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.business = business;
+        this.userAccount = userAccount;
+        hospitalAdmin = (HospitalAdmin)userAccount;
+        initComponents();
+        display(hospitalAdmin);
+        btnsave.setVisible(false);
     }
-
+      private void display(HospitalAdmin hospitalAdmin) {
+        setVisibleEditable(false);
+        txtname.setText(hospitalAdmin.getHospitalName()); 
+        txtaddr.setText(hospitalAdmin.getAddress()); 
+        txtcontact.setText(hospitalAdmin.getContactNumber()); 
+    }
+     
+     private void setVisibleEditable(boolean value) {
+        txtname.setEditable(value);        
+        txtname.setEnabled(value);
+        txtaddr.setEditable(value);        
+        txtaddr.setEnabled(value);
+        txtaddr.setEditable(value);        
+        txtaddr.setEnabled(value);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -25,20 +56,212 @@ public class UpdateHospitalInfoPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        jPanel1 = new javax.swing.JPanel();
+        hospName = new javax.swing.JLabel();
+        lblAddr = new javax.swing.JLabel();
+        lblContact = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btnupdate = new javax.swing.JButton();
+        btnback = new javax.swing.JButton();
+        btnsave = new javax.swing.JButton();
+        txtname = new javax.swing.JTextField();
+        txtaddr = new javax.swing.JTextField();
+        txtcontact = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        hospName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        hospName.setForeground(new java.awt.Color(255, 255, 255));
+        hospName.setText("Hospital Name");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(69, 116, 0, 0);
+        jPanel1.add(hospName, gridBagConstraints);
+
+        lblAddr.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        lblAddr.setForeground(new java.awt.Color(255, 255, 255));
+        lblAddr.setText("Hospital Address");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 93, 0, 0);
+        jPanel1.add(lblAddr, gridBagConstraints);
+
+        lblContact.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        lblContact.setForeground(new java.awt.Color(255, 255, 255));
+        lblContact.setText("Hospital Contact");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 98, 0, 0);
+        jPanel1.add(lblContact, gridBagConstraints);
+
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("MANAGE HOSPITAL INFORMATION");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 6, 0, 74);
+        jPanel1.add(jLabel3, gridBagConstraints);
+
+        btnupdate.setBackground(new java.awt.Color(255, 255, 204));
+        btnupdate.setText("UPDATE");
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 6;
+        gridBagConstraints.ipadx = 35;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 73, 0, 0);
+        jPanel1.add(btnupdate, gridBagConstraints);
+
+        btnback.setBackground(new java.awt.Color(255, 255, 204));
+        btnback.setText("BACK");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbackActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 25;
+        gridBagConstraints.ipady = 21;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 23, 0, 0);
+        jPanel1.add(btnback, gridBagConstraints);
+
+        btnsave.setBackground(new java.awt.Color(255, 255, 204));
+        btnsave.setText("SAVE");
+        btnsave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsaveActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipadx = 31;
+        gridBagConstraints.ipady = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(74, 73, 0, 0);
+        jPanel1.add(btnsave, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 158;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(69, 56, 0, 0);
+        jPanel1.add(txtname, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.ipadx = 158;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 56, 0, 0);
+        jPanel1.add(txtaddr, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 158;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 56, 0, 0);
+        jPanel1.add(txtcontact, gridBagConstraints);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/HospitalAdmin/hospimg.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.ipadx = -91;
+        gridBagConstraints.ipady = -93;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(73, 76, 147, 0);
+        jPanel1.add(jLabel1, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1122, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 794, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        // TODO add your handling code here:
+        btnupdate.setVisible(true);
+        setVisibleEditable(true);
+    }//GEN-LAST:event_btnupdateActionPerformed
+
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
+        // TODO add your handling code here:
+        HospitalAdminArea adminWorkAreaJPanel = new HospitalAdminArea(userProcessContainer,userAccount, business);
+        userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnbackActionPerformed
+
+    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
+        // TODO add your handling code here:
+        hospitalAdmin.setHospitalName(txtname.getText());
+        setVisibleEditable(false);
+    }//GEN-LAST:event_btnsaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnback;
+    private javax.swing.JButton btnsave;
+    private javax.swing.JButton btnupdate;
+    private javax.swing.JLabel hospName;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblAddr;
+    private javax.swing.JLabel lblContact;
+    private javax.swing.JTextField txtaddr;
+    private javax.swing.JTextField txtcontact;
+    private javax.swing.JTextField txtname;
     // End of variables declaration//GEN-END:variables
 }
