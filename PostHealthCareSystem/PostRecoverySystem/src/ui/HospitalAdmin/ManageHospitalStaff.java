@@ -23,6 +23,7 @@ import Business.Role.LabExaminerRole;
 import Business.Role.NurseRole;
 import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
@@ -232,10 +233,10 @@ public class ManageHospitalStaff extends javax.swing.JPanel {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-//        HospitalAdminArea adminWorkAreaJPanel = new HospitalAdminArea(userProcessContainer,userAccount, newlife);
-//        userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
-//        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
+        HospitalAdminArea adminWorkAreaJPanel = new HospitalAdminArea(userProcessContainer,userAccount, business);
+        userProcessContainer.add("AdminWorkAreaJPanel", adminWorkAreaJPanel);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void btnaddstaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddstaffActionPerformed

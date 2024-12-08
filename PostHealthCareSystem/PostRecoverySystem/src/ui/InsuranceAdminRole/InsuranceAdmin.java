@@ -6,6 +6,7 @@ package ui.InsuranceAdminRole;
 
 import Business.Business;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -26,7 +27,21 @@ public class InsuranceAdmin extends javax.swing.JPanel {
         this.business=business;
         this.userAccount = userAccount; 
     }
-
+    
+    // Manage orders
+    private void manageClaims() {
+        ViewOrderDetails viewOrderDetails = new ViewOrderDetails(userProcessContainer,business,userAccount);
+        userProcessContainer.add("ViewOrderDetails",viewOrderDetails);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }
+    
+    private void manageInfo() {
+        PatientRecords updatePatientInfoJPanel = new PatientRecords(userProcessContainer,business, userAccount);
+        userProcessContainer.add("updatePatientInfoJPanel",updatePatientInfoJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,20 +50,116 @@ public class InsuranceAdmin extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        btnManageApprovals = new javax.swing.JButton();
+        btnViewPatientRecords = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        jLabel1.setFont(new java.awt.Font("Malayalam Sangam MN", 3, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("WELCOME INSURANCE ADMIN");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 57;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(105, 0, 0, 0);
+        jPanel1.add(jLabel1, gridBagConstraints);
+
+        btnManageApprovals.setBackground(new java.awt.Color(255, 255, 204));
+        btnManageApprovals.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnManageApprovals.setText("Manage approvals");
+        btnManageApprovals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageApprovalsActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipadx = 45;
+        gridBagConstraints.ipady = 31;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(448, 40, 0, 0);
+        jPanel1.add(btnManageApprovals, gridBagConstraints);
+
+        btnViewPatientRecords.setBackground(new java.awt.Color(255, 255, 204));
+        btnViewPatientRecords.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnViewPatientRecords.setText("View Patient Records");
+        btnViewPatientRecords.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewPatientRecordsActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.ipadx = 14;
+        gridBagConstraints.ipady = 31;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(458, 20, 85, 1);
+        jPanel1.add(btnViewPatientRecords, gridBagConstraints);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/InsuranceAdminRole/insuranceimage.jpeg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = -59;
+        gridBagConstraints.ipady = -54;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(85, 0, 0, 0);
+        jPanel1.add(jLabel2, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 679, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 679, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 548, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnManageApprovalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageApprovalsActionPerformed
+        // TODO add your handling code here:
+        manageClaims();
+    }//GEN-LAST:event_btnManageApprovalsActionPerformed
+
+    private void btnViewPatientRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPatientRecordsActionPerformed
+        // TODO add your handling code here:
+        manageInfo();
+    }//GEN-LAST:event_btnViewPatientRecordsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnManageApprovals;
+    private javax.swing.JButton btnViewPatientRecords;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
