@@ -48,7 +48,7 @@ public class Dashboard extends JFrame {
 
         PatientDirectory patientDirectory = business.getPatientDirectory();
         for (Patient patient : patientDirectory.getPatientList()) {
-            if (patient.getSeverity().equals("High")) {
+            if (patient.getSeverity().equals("Critical")) {
                 Critical = Critical + 1;
             } else if (patient.getSeverity().equals("Severe")) {
                 Severe = Severe + 1;
