@@ -16,6 +16,7 @@ public class ConfigureASystem {
     public static Business configure(){
         
         Business system = Business.getInstance();
+        System.out.println("ConfigureSystem: "+system);
         
         //Create a network
         //create an enterprise

@@ -21,7 +21,9 @@ public class DB4OUtil {
 
     public synchronized static DB4OUtil getInstance() {
         if (dB4OUtil == null) {
+            System.out.println("Started");
             dB4OUtil = new DB4OUtil();
+            System.out.println("db4o" +dB4OUtil);
         }
         return dB4OUtil;
     }
