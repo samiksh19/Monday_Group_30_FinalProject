@@ -35,4 +35,3 @@ public class PharmaceuticalDirectory {
         pharmaceuticalList.remove(pharma);
     }
 }
-
