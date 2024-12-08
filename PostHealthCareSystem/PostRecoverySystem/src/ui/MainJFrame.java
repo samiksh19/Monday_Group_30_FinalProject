@@ -32,7 +32,6 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
-        System.out.println("System: "+system);
         this.setSize(1680, 1050);
     }
 
@@ -182,27 +181,23 @@ public class MainJFrame extends javax.swing.JFrame {
         char[] passwordCharArray = passwordField.getPassword();
         String password = String.valueOf(passwordCharArray);
         //Step1: Check in the system admin user account directory if you have the user
-System.out.println("HI");
         UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
-//System.out.println("HI2"+userAccount.getUsername());
+
         if (userAccount == null){
             JOptionPane.showMessageDialog(null, "Invalid credentials");
             return;
         }
         else {
            if (userAccount instanceof Patient){
-               
                 container.add("workArea", userAccount.getRole().createWorkArea(container, (Patient)userAccount, system));
             }else if(userAccount instanceof Pharmacy){
                 container.add("workArea", userAccount.getRole().createWorkArea(container, (Pharmacy)userAccount, system));
             }else if(userAccount instanceof Porter){
                 container.add("workArea", userAccount.getRole().createWorkArea(container, (Porter)userAccount, system));
             }else{
-                System.out.println("HI3");
                 container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, system));
             }
             CardLayout layout = (CardLayout) container.getLayout();
-            System.out.println("HI4");
             layout.next(container);
         }
         loginJButton.setEnabled(false);
