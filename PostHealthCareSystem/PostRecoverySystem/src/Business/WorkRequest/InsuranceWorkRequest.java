@@ -10,11 +10,7 @@ import java.util.UUID;
  *
  * @author samik
  */
-<<<<<<< HEAD
-public class InsuranceWorkRequest {
-=======
 public class InsuranceWorkRequest extends WorkRequest{
->>>>>>> 4362381352b9cc7356dff0fad4c9efed18034a37
     private String patientName;
     private String id;
     private int claimAmount;
