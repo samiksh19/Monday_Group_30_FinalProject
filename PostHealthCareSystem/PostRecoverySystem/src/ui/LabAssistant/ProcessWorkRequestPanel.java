@@ -84,7 +84,7 @@ public class ProcessWorkRequestPanel extends javax.swing.JPanel {
     
     private void sendMail(){
         String from = "dalealphonso7@gmail.com";
-        String pass = "Dale@alphaMS24";
+        String pass = "fvsk kwtq rfzf prti";
         System.out.print("Username"+workRequest.getPatient().getEmail());
         String[] to = { workRequest.getPatient().getEmail() }; // list of recipient email addresses
         String subject = "LAB RESULTS";
@@ -96,20 +96,25 @@ public class ProcessWorkRequestPanel extends javax.swing.JPanel {
     private static void sendFromGMail(String from, String pass, String[] to, String subject, String body) {
         Properties props = System.getProperties();
         String host = "smtp.gmail.com";
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", host);
-        props.put("mail.smtp.user", from);
-        props.put("mail.smtp.password", pass);
-        props.put("mail.smtp.port", "587");
-        props.put("mail.smtp.auth", "true");
+         
+         props.put("mail.smtp.host", "smtp.gmail.com"); 
+         props.put("mail.smtp.port", "587"); 
+         props.put("mail.smtp.auth", "true"); 
+         props.put("mail.smtp.starttls.enable", "true"); 
+         props.put("mail.smtp.ssl.protocols", "TLSv1.2");
 
-        Session session = Session.getInstance(props);
-        session.setDebug(true);
-        MimeMessage message = new MimeMessage(session);
+        Session session = Session.getInstance(props, new javax.mail.Authenticator(){
+            protected javax.mail.PasswordAuthentication getPasswordAuthenticator(){
+                return new javax.mail.PasswordAuthentication(from, pass);
+            }
+        });
+        
 
         try {
-            message.setFrom(new InternetAddress(from));
+            
+           Message message = new MimeMessage(session);            
             InternetAddress[] toAddress = new InternetAddress[to.length];
+            message.setFrom(new InternetAddress("no-reply@gmail.com"));
 
             // To get the array of addresses
             for( int i = 0; i < to.length; i++ ) {
@@ -117,7 +122,7 @@ public class ProcessWorkRequestPanel extends javax.swing.JPanel {
             }
 
             for( int i = 0; i < toAddress.length; i++) {
-                message.addRecipient(Message.RecipientType.TO, toAddress[i]);
+                message.setRecipient(Message.RecipientType.TO, toAddress[i]);
             }
 
             message.setSubject(subject);
