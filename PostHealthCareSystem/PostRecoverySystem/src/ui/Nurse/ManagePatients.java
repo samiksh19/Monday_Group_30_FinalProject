@@ -555,7 +555,7 @@ public class ManagePatients extends javax.swing.JPanel {
                     .addComponent(txtBP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -614,62 +614,136 @@ public class ManagePatients extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemActionPerformed
-        if (txtPatientName.getText().isEmpty() || txtPassword.getText().isEmpty() || txtAge.getText().isEmpty() || txtBP.getText().isEmpty() || txtHeartRate.getText().isEmpty() || txtSeverity.getText().isEmpty() || txtEmail.getText().isEmpty() || txtAddress.getText().isEmpty() || txtHeight.getText().isEmpty() || txtWeight.getText().isEmpty() || txtO2Level.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Enter all fields");
-            return;
-        }
-        if (txtContact.getText().length() != 10) {
-            JOptionPane.showMessageDialog(null, "Enter a valid phone number !");
-            return;
-        }
-        if (business.getUserAccountDirectory().checkUsernameUnique(txtPatientName.getText())) {
-            Patient patient = new Patient();
-            patient.setName(txtPatientName.getText());
-            patient.setPhone(txtContact.getText());
-            patient.setAddress(txtAddress.getText());
-            patient.setAge(txtAge.getText());
-            patient.setBloodPressure(txtBP.getText());
-            patient.setHeartRate(txtHeartRate.getText());
-            patient.setSeverity(txtSeverity.getText());
-            patient.setUsername(txtPatientName.getText());
-            patient.setPassword(txtPassword.getText());
-            patient.setEmail(txtEmail.getText());
-            patient.setHeight(txtHeight.getText());
-            patient.setWeight(txtWeight.getText());
-            patient.setOxygenlevel(txtO2Level.getText());
-            patient.setRole(new PatientRole());
-            
-            CareGiver family = new CareGiver();
-            family.setFamilyName(txtFamName.getText());
-            family.setAge(txtFamAge.getText());
-            family.setBloodGroup(txtFamBldGrp.getText());
-            family.setPhone(txtFamContact.getText());
-            family.setRelation(txtFamRltn.getText());
-            family.setAddress(txtFamAddr.getText());
-            family.setAlternatePhone(txtFamAlternateNo.getText());
-            family.setEmail(txtFamEmail.getText());
-            
-            patient.setCaregiver(family);
-            
-            business.getUserAccountDirectory().addUserAccount(patient);
-            business.getPatientDirectory().addPatient(patient);
 
-            populateTable();
-            txtPatientName.setText("");
-            txtPassword.setText("");
-            txtContact.setText("");
-            txtAddress.setText("");
-            txtBP.setText("");
-            txtHeartRate.setText("");
-            txtSeverity.setText("");
-            txtAge.setText("");
-            txtEmail.setText("");
-            txtHeight.setText("");
-            txtWeight.setText("");
-            txtO2Level.setText("");
-        } else {
-            JOptionPane.showMessageDialog(null, "Username " + txtPatientName.getText() + " exists");
-        }
+           // Validate if patient fields are filled
+    // Validate if required fields are filled
+    if (txtPatientName.getText().isEmpty() || txtPassword.getText().isEmpty() || txtAge.getText().isEmpty() ||
+        txtBP.getText().isEmpty() || txtHeartRate.getText().isEmpty() || txtSeverity.getText().isEmpty() || 
+        txtEmail.getText().isEmpty() || txtAddress.getText().isEmpty() || txtHeight.getText().isEmpty() ||
+        txtWeight.getText().isEmpty() || txtO2Level.getText().isEmpty() || txtFamName.getText().isEmpty() ||
+        txtFamAge.getText().isEmpty() || txtFamBldGrp.getText().isEmpty() || txtFamContact.getText().isEmpty() || 
+        txtFamRltn.getText().isEmpty() || txtFamAddr.getText().isEmpty() || txtFamAlternateNo.getText().isEmpty() || 
+        txtFamEmail.getText().isEmpty()) {
+
+        JOptionPane.showMessageDialog(null, 
+            "Please fill in all fields for both Patient and Caregiver details. Ensure you provide:\n" +
+            "- Patient Name, Password, Age, BP, Heart Rate, Severity, Email, Address, Height, Weight, O2 Level\n" +
+            "- Caregiver Name, Age, Blood Group, Contact, Relation, Address, Alternate Contact, Email");
+        return;
+    }
+
+    // Validate patient contact number
+    if (txtContact.getText().length() != 10 || !txtContact.getText().matches("\\d{10}")) {
+        JOptionPane.showMessageDialog(null, "Enter a valid 10-digit phone number for the patient!");
+        return;
+    }
+
+    // Validate caregiver contact number
+    if (txtFamContact.getText().length() != 10 || !txtFamContact.getText().matches("\\d{10}")) {
+        JOptionPane.showMessageDialog(null, "Enter a valid 10-digit phone number for the caregiver!");
+        return;
+    }
+
+    // Validate caregiver alternate contact number
+    if (txtFamAlternateNo.getText().length() != 10 || !txtFamAlternateNo.getText().matches("\\d{10}")) {
+        JOptionPane.showMessageDialog(null, "Enter a valid 10-digit alternate contact number for the caregiver!");
+        return;
+    }
+
+    // Validate email format for patient
+    String email = txtEmail.getText();
+    String emailPattern = "^[\\w-\\.]+@[\\w-]+\\.[a-z]{2,3}$";
+    if (!email.matches(emailPattern)) {
+        JOptionPane.showMessageDialog(null, "Enter a valid email address for the patient!");
+        return;
+    }
+
+    // Validate email format for caregiver
+    String famEmail = txtFamEmail.getText();
+    if (!famEmail.matches(emailPattern)) {
+        JOptionPane.showMessageDialog(null, "Enter a valid email address for the caregiver!");
+        return;
+    }
+
+    // Validate password strength
+    String password = txtPassword.getText();
+    String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=~|?])(?=\\S+$).{8,}$";
+    if (!password.matches(passwordPattern)) {
+        JOptionPane.showMessageDialog(null, 
+            "Create a strong password that meets the following criteria:\n" +
+            "- At least 8 characters\n" +
+            "- Contains both upper and lower case letters\n" +
+            "- Includes at least one numeric digit\n" +
+            "- Has at least one special character (e.g., !@#$%^&+=~|?)");
+        txtPassword.setText(""); // Clear the password field
+        return;
+    }
+
+    // Validate username uniqueness
+    if (!business.getUserAccountDirectory().checkUsernameUnique(txtPatientName.getText())) {
+        JOptionPane.showMessageDialog(null, "Username \"" + txtPatientName.getText() + "\" already exists. Please choose another.");
+        return;
+    }
+
+    // If validations pass, create a new Patient object
+    Patient patient = new Patient();
+    patient.setName(txtPatientName.getText());
+    patient.setPhone(txtContact.getText());
+    patient.setAddress(txtAddress.getText());
+    patient.setAge(txtAge.getText());
+    patient.setBloodPressure(txtBP.getText());
+    patient.setHeartRate(txtHeartRate.getText());
+    patient.setSeverity(txtSeverity.getText());
+    patient.setUsername(txtPatientName.getText());
+    patient.setPassword(txtPassword.getText());
+    patient.setEmail(txtEmail.getText());
+    patient.setHeight(txtHeight.getText());
+    patient.setWeight(txtWeight.getText());
+    patient.setOxygenlevel(txtO2Level.getText());
+    patient.setRole(new PatientRole());
+
+    // Create and link Caregiver details
+    CareGiver family = new CareGiver();
+    family.setFamilyName(txtFamName.getText());
+    family.setAge(txtFamAge.getText());
+    family.setBloodGroup(txtFamBldGrp.getText());
+    family.setPhone(txtFamContact.getText());
+    family.setRelation(txtFamRltn.getText());
+    family.setAddress(txtFamAddr.getText());
+    family.setAlternatePhone(txtFamAlternateNo.getText());
+    family.setEmail(txtFamEmail.getText());
+
+    patient.setCaregiver(family);
+
+    // Save Patient and Caregiver details to directories
+    business.getUserAccountDirectory().addUserAccount(patient);
+    business.getPatientDirectory().addPatient(patient);
+
+    // Update the table and reset fields
+    populateTable();
+    JOptionPane.showMessageDialog(null, "Patient and caregiver details added successfully!");
+
+    // Clear input fields
+    txtPatientName.setText("");
+    txtPassword.setText("");
+    txtContact.setText("");
+    txtAddress.setText("");
+    txtBP.setText("");
+    txtHeartRate.setText("");
+    txtSeverity.setText("");
+    txtAge.setText("");
+    txtEmail.setText("");
+    txtHeight.setText("");
+    txtWeight.setText("");
+    txtO2Level.setText("");
+    txtFamName.setText("");
+    txtFamAge.setText("");
+    txtFamBldGrp.setText("");
+    txtFamContact.setText("");
+    txtFamRltn.setText("");
+    txtFamAddr.setText("");
+    txtFamAlternateNo.setText("");
+    txtFamEmail.setText("");
     }//GEN-LAST:event_btnAddItemActionPerformed
 
     private void populateTable() {
