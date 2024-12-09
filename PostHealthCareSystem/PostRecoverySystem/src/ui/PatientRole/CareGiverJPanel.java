@@ -79,20 +79,19 @@ public class CareGiverJPanel extends javax.swing.JPanel {
         jLabel65 = new javax.swing.JLabel();
         txtFamAddr = new javax.swing.JTextField();
 
-        jPanel6.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel6.setBackground(new java.awt.Color(163, 186, 195));
 
         jLabel53.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
-        jLabel53.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel53.setForeground(new java.awt.Color(204, 51, 0));
         jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel53.setText("CARE GIVER");
 
         jLabel54.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
         jLabel54.setText("Name");
 
         txtFamName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
 
-        btnUpdate.setBackground(new java.awt.Color(255, 255, 204));
+        btnUpdate.setBackground(new java.awt.Color(0, 105, 137));
         btnUpdate.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +100,7 @@ public class CareGiverJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnBack6.setBackground(new java.awt.Color(255, 255, 204));
+        btnBack6.setBackground(new java.awt.Color(0, 105, 137));
         btnBack6.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         btnBack6.setText("Back");
         btnBack6.addActionListener(new java.awt.event.ActionListener() {
@@ -114,17 +113,14 @@ public class CareGiverJPanel extends javax.swing.JPanel {
         txtFamContact.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel55.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel55.setForeground(new java.awt.Color(255, 255, 255));
         jLabel55.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel55.setText("Contact");
 
         jLabel58.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel58.setForeground(new java.awt.Color(255, 255, 255));
         jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel58.setText("Age");
 
         jLabel59.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel59.setForeground(new java.awt.Color(255, 255, 255));
         jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel59.setText("Alternate No");
 
@@ -139,12 +135,10 @@ public class CareGiverJPanel extends javax.swing.JPanel {
         txtFamAge.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel62.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel62.setForeground(new java.awt.Color(255, 255, 255));
         jLabel62.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel62.setText("Blood Group");
 
         jLabel63.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel63.setForeground(new java.awt.Color(255, 255, 255));
         jLabel63.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel63.setText("Email");
 
@@ -155,7 +149,6 @@ public class CareGiverJPanel extends javax.swing.JPanel {
         txtFamEmail.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel64.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel64.setForeground(new java.awt.Color(255, 255, 255));
         jLabel64.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel64.setText("Relation");
 
@@ -163,7 +156,6 @@ public class CareGiverJPanel extends javax.swing.JPanel {
         txtFamRltn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel65.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel65.setForeground(new java.awt.Color(255, 255, 255));
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel65.setText("Address");
 

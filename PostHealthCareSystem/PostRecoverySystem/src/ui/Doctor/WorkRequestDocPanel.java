@@ -125,7 +125,6 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         backJButton = new javax.swing.JButton();
@@ -146,7 +145,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         oxygenlevel = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(163, 186, 195));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backJButton.setBackground(new java.awt.Color(0, 105, 137));
         backJButton.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -157,42 +156,21 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(backJButton, new java.awt.GridBagConstraints());
+        jPanel1.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel3.setText("Patient Name");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 153, 0, 0);
-        jPanel1.add(jLabel3, gridBagConstraints);
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 151, -1, -1));
 
         customerNameValue.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         customerNameValue.setText("<Value>");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 177;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 86, 0, 0);
-        jPanel1.add(customerNameValue, gridBagConstraints);
+        jPanel1.add(customerNameValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(636, 151, 258, -1));
 
         jLabel9.setFont(new java.awt.Font("Georgia", 1, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(204, 51, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("APPOINTMENT DETAILS");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 11;
-        gridBagConstraints.ipadx = 411;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(7, 0, 0, 0);
-        jPanel1.add(jLabel9, gridBagConstraints);
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 889, -1));
 
         btnStatus.setBackground(new java.awt.Color(0, 105, 137));
         btnStatus.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -203,48 +181,20 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
                 btnStatusActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 24;
-        gridBagConstraints.ipady = 17;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(32, 158, 0, 0);
-        jPanel1.add(btnStatus, gridBagConstraints);
+        jPanel1.add(btnStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 406, 235, 45));
 
         jLabel5.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel5.setText("Status");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 207, 0, 0);
-        jPanel1.add(jLabel5, gridBagConstraints);
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(455, 193, -1, -1));
 
         status.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         status.setText("<Value>");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 177;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 86, 0, 0);
-        jPanel1.add(status, gridBagConstraints);
+        jPanel1.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(636, 190, 258, -1));
 
         jLabel4.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Zoom Link");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 168, 0, 0);
-        jPanel1.add(jLabel4, gridBagConstraints);
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 351, -1, -1));
 
         zoomLinkTxtField.setEditable(false);
         zoomLinkTxtField.setBackground(new java.awt.Color(203, 213, 220));
@@ -256,91 +206,34 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
                 zoomLinkTxtFieldActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 242;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 86, 0, 0);
-        jPanel1.add(zoomLinkTxtField, gridBagConstraints);
+        jPanel1.add(zoomLinkTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(636, 349, 306, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.gridwidth = 12;
-        gridBagConstraints.ipadx = 859;
-        gridBagConstraints.ipady = 330;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 0);
-        jPanel1.add(jLabel1, gridBagConstraints);
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 469, 859, 330));
 
         jLabel6.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel6.setText("Patient Heart Rate");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 116, 0, 0);
-        jPanel1.add(jLabel6, gridBagConstraints);
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 232, -1, -1));
 
         heartrate.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         heartrate.setText("<Value>");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 177;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 86, 0, 0);
-        jPanel1.add(heartrate, gridBagConstraints);
+        jPanel1.add(heartrate, new org.netbeans.lib.awtextra.AbsoluteConstraints(636, 232, 258, -1));
 
         jLabel7.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel7.setText("Patient Blood Pressure");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 84, 0, 0);
-        jPanel1.add(jLabel7, gridBagConstraints);
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 271, -1, -1));
 
         bloodpressure.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         bloodpressure.setText("<Value>");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 177;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 86, 0, 0);
-        jPanel1.add(bloodpressure, gridBagConstraints);
+        jPanel1.add(bloodpressure, new org.netbeans.lib.awtextra.AbsoluteConstraints(636, 271, 258, -1));
 
         jLabel8.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel8.setText("Patient Oxygen Level");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 99, 0, 0);
-        jPanel1.add(jLabel8, gridBagConstraints);
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 310, -1, -1));
 
         oxygenlevel.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         oxygenlevel.setText("<Value>");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 177;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 86, 0, 0);
-        jPanel1.add(oxygenlevel, gridBagConstraints);
+        jPanel1.add(oxygenlevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(636, 310, 258, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

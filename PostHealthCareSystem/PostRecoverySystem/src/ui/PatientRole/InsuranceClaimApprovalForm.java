@@ -108,26 +108,22 @@ public class InsuranceClaimApprovalForm extends javax.swing.JPanel {
         btnBack2 = new javax.swing.JButton();
         treatmentList = new javax.swing.JComboBox<>();
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(163, 186, 195));
 
         claimAmount.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        claimAmount.setForeground(new java.awt.Color(255, 255, 255));
         claimAmount.setText("Claim Amount");
 
         patientName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Patient Name");
 
         amount.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Treatment");
 
         enterpriseLabel1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        enterpriseLabel1.setForeground(new java.awt.Color(255, 255, 255));
         enterpriseLabel1.setText("Choose Insurance Admin");
 
         insuranceCombo.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
@@ -138,11 +134,11 @@ public class InsuranceClaimApprovalForm extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(204, 51, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CLAIM INFORMATION");
 
-        sendToCDCbtn.setBackground(new java.awt.Color(255, 255, 204));
+        sendToCDCbtn.setBackground(new java.awt.Color(0, 105, 137));
         sendToCDCbtn.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         sendToCDCbtn.setText("Send to Insurance Admin");
         sendToCDCbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +147,7 @@ public class InsuranceClaimApprovalForm extends javax.swing.JPanel {
             }
         });
 
-        btnBack2.setBackground(new java.awt.Color(255, 255, 204));
+        btnBack2.setBackground(new java.awt.Color(0, 105, 137));
         btnBack2.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         btnBack2.setText("Back");
         btnBack2.addActionListener(new java.awt.event.ActionListener() {
@@ -171,40 +167,43 @@ public class InsuranceClaimApprovalForm extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                    .addGap(273, 273, 273)
-                    .addComponent(jLabel7))
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(262, 262, 262)
-                    .addComponent(claimAmount)
-                    .addGap(520, 520, 520)))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(273, 273, 273)
+                            .addComponent(jLabel7))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(262, 262, 262)
+                            .addComponent(claimAmount)
+                            .addGap(520, 520, 520)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(btnBack2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(enterpriseLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(treatmentList, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(103, 103, 103)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(insuranceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(patientName, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(418, 418, 418)
-                        .addComponent(sendToCDCbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(135, 135, 135))
+                                .addGap(44, 44, 44)
+                                .addComponent(btnBack2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(228, 228, 228)
+                                .addComponent(enterpriseLabel1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(272, 272, 272)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(treatmentList, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(103, 103, 103)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(insuranceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(patientName, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(418, 418, 418)
+                                .addComponent(sendToCDCbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(135, 135, 135)))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,28 +233,24 @@ public class InsuranceClaimApprovalForm extends javax.swing.JPanel {
                     .addComponent(treatmentList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addComponent(sendToCDCbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(476, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGap(0, 1200, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 404, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
