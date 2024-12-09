@@ -87,36 +87,34 @@ public class AcceptOrderPanel extends javax.swing.JPanel {
         status = new javax.swing.JLabel();
         statusvalue = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(163, 186, 195));
 
         jLabel4.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Patient Name");
 
         patientName.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         patientName.setText("<value>");
 
         jLabel5.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Claim Amount");
 
         amount.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         amount.setText("<value>");
 
         jLabel6.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("  Treatment");
 
         treatment.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         treatment.setText("<value>");
 
         jLabel1.setFont(new java.awt.Font("Malayalam Sangam MN", 3, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(204, 51, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CLAIM APPROVAL");
 
-        btnback.setBackground(new java.awt.Color(255, 255, 204));
+        btnback.setBackground(new java.awt.Color(0, 105, 137));
         btnback.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnback.setForeground(new java.awt.Color(255, 255, 255));
         btnback.setText("BACK");
         btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,8 +122,9 @@ public class AcceptOrderPanel extends javax.swing.JPanel {
             }
         });
 
-        btndecline.setBackground(new java.awt.Color(255, 255, 204));
+        btndecline.setBackground(new java.awt.Color(0, 105, 137));
         btndecline.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btndecline.setForeground(new java.awt.Color(255, 255, 255));
         btndecline.setText("DECLINE");
         btndecline.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,8 +132,9 @@ public class AcceptOrderPanel extends javax.swing.JPanel {
             }
         });
 
-        btnaccept.setBackground(new java.awt.Color(255, 255, 204));
+        btnaccept.setBackground(new java.awt.Color(0, 105, 137));
         btnaccept.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnaccept.setForeground(new java.awt.Color(255, 255, 255));
         btnaccept.setText("ACCEPT");
         btnaccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +143,6 @@ public class AcceptOrderPanel extends javax.swing.JPanel {
         });
 
         status.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        status.setForeground(new java.awt.Color(255, 255, 255));
         status.setText("  Status");
 
         statusvalue.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
