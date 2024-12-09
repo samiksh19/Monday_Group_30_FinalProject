@@ -181,7 +181,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
                 btnStatusActionPerformed(evt);
             }
         });
-        jPanel1.add(btnStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 406, 235, 45));
+        jPanel1.add(btnStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 235, 45));
 
         jLabel5.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel5.setText("Status");
@@ -257,6 +257,10 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
 
+    private void zoomLinkTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomLinkTxtFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zoomLinkTxtFieldActionPerformed
+
     private void btnStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatusActionPerformed
         // TODO add your handling code here:
         System.out.println(workRequest.getStatus());
@@ -288,12 +292,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         }
         changeButtonText();
         status.setText(workRequest.getStatus());
-
     }//GEN-LAST:event_btnStatusActionPerformed
-
-    private void zoomLinkTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomLinkTxtFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_zoomLinkTxtFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

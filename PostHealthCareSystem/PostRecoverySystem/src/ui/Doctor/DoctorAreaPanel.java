@@ -20,22 +20,25 @@ import javax.swing.table.DefaultTableModel;
  * @author dalea
  */
 public class DoctorAreaPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private Business business;
     private UserAccount userAccount;
     private List<WorkRequest> workRequestList;
+
     /**
      * Creates new form DoctorAreaPanel
      */
     public DoctorAreaPanel(JPanel userProcessContainer, UserAccount userAccount, Business business) {
         initComponents();
-//        creatingListenerForDelInfo();
+        creatingListenerForDelInfo();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
         this.business = business;
-       fillDelRqTable();
+        fillDelRqTable();
     }
-private void fillDelRqTable(){
+
+    private void fillDelRqTable() {
         DefaultTableModel model = (DefaultTableModel) tblDeliveryManWorkRequest.getModel();
         model.setRowCount(0);
         workRequestList = business.getWorkQueue().getWorkRequestListDoctor(userAccount);
@@ -47,8 +50,8 @@ private void fillDelRqTable(){
             row[3] = request.getStatus();
             model.addRow(row);
         }
-        }
-    
+    }
+
     private void creatingListenerForDelInfo() {
         tblDeliveryManWorkRequest.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
@@ -58,10 +61,10 @@ private void fillDelRqTable(){
                     if (request instanceof LabWorkRequest) {
                         LabWorkRequest orderWorkRequest = (LabWorkRequest) tblDeliveryManWorkRequest.getValueAt(selectedRow, 0);
                         if (orderWorkRequest != null) {
-                           WorkRequestDocPanel processOrderJPanel = new WorkRequestDocPanel(userProcessContainer,business,userAccount,orderWorkRequest);
-                           userProcessContainer.add("ProcessOrderJPanel", processOrderJPanel);
-                           CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-                           layout.next(userProcessContainer);
+                            WorkRequestDocPanel processOrderJPanel = new WorkRequestDocPanel(userProcessContainer, business, userAccount, orderWorkRequest);
+                            userProcessContainer.add("ProcessOrderJPanel", processOrderJPanel);
+                            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                            layout.next(userProcessContainer);
                         }
                     }
 
