@@ -145,28 +145,21 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         oxygenlevel = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(163, 186, 195));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        backJButton.setBackground(new java.awt.Color(255, 255, 204));
+        backJButton.setBackground(new java.awt.Color(0, 105, 137));
         backJButton.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        backJButton.setForeground(new java.awt.Color(255, 255, 255));
         backJButton.setText("Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 24;
-        gridBagConstraints.ipady = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        jPanel1.add(backJButton, gridBagConstraints);
+        jPanel1.add(backJButton, new java.awt.GridBagConstraints());
 
-        jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel3.setText("Patient Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -176,8 +169,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(18, 153, 0, 0);
         jPanel1.add(jLabel3, gridBagConstraints);
 
-        customerNameValue.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        customerNameValue.setForeground(new java.awt.Color(255, 255, 255));
+        customerNameValue.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         customerNameValue.setText("<Value>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -189,8 +181,8 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(18, 86, 0, 0);
         jPanel1.add(customerNameValue, gridBagConstraints);
 
-        jLabel9.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Georgia", 1, 36)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(204, 51, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("APPOINTMENT DETAILS");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -202,8 +194,9 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(7, 0, 0, 0);
         jPanel1.add(jLabel9, gridBagConstraints);
 
-        btnStatus.setBackground(new java.awt.Color(255, 255, 204));
+        btnStatus.setBackground(new java.awt.Color(0, 105, 137));
         btnStatus.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnStatus.setForeground(new java.awt.Color(255, 255, 255));
         btnStatus.setText("Schedule Appointment");
         btnStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,8 +213,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(32, 158, 0, 0);
         jPanel1.add(btnStatus, gridBagConstraints);
 
-        jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel5.setText("Status");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -231,8 +223,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(21, 207, 0, 0);
         jPanel1.add(jLabel5, gridBagConstraints);
 
-        status.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        status.setForeground(new java.awt.Color(255, 255, 255));
+        status.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         status.setText("<Value>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -245,7 +236,6 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         jPanel1.add(status, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Zoom Link");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -257,7 +247,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         jPanel1.add(jLabel4, gridBagConstraints);
 
         zoomLinkTxtField.setEditable(false);
-        zoomLinkTxtField.setBackground(new java.awt.Color(255, 255, 204));
+        zoomLinkTxtField.setBackground(new java.awt.Color(203, 213, 220));
         zoomLinkTxtField.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         zoomLinkTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         zoomLinkTxtField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -287,8 +277,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 0);
         jPanel1.add(jLabel1, gridBagConstraints);
 
-        jLabel6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel6.setText("Patient Heart Rate");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -298,8 +287,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(18, 116, 0, 0);
         jPanel1.add(jLabel6, gridBagConstraints);
 
-        heartrate.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        heartrate.setForeground(new java.awt.Color(255, 255, 255));
+        heartrate.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         heartrate.setText("<Value>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -311,8 +299,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(18, 86, 0, 0);
         jPanel1.add(heartrate, gridBagConstraints);
 
-        jLabel7.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel7.setText("Patient Blood Pressure");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -321,8 +308,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(18, 84, 0, 0);
         jPanel1.add(jLabel7, gridBagConstraints);
 
-        bloodpressure.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        bloodpressure.setForeground(new java.awt.Color(255, 255, 255));
+        bloodpressure.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         bloodpressure.setText("<Value>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -334,8 +320,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(18, 86, 0, 0);
         jPanel1.add(bloodpressure, gridBagConstraints);
 
-        jLabel8.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel8.setText("Patient Oxygen Level");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -345,8 +330,7 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(18, 99, 0, 0);
         jPanel1.add(jLabel8, gridBagConstraints);
 
-        oxygenlevel.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        oxygenlevel.setForeground(new java.awt.Color(255, 255, 255));
+        oxygenlevel.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         oxygenlevel.setText("<Value>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -362,21 +346,13 @@ public class WorkRequestDocPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 782, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 664, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 857, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
