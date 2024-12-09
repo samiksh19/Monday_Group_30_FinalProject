@@ -107,9 +107,9 @@ public class PharmacyAdminWorkArea extends javax.swing.JPanel {
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/PharmacyAdminRole/meds-dr.gif"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/PharmacyAdminRole/Pharmacy.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, 500, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 120, 500, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
