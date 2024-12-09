@@ -35,22 +35,22 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         btnManageHospital = new javax.swing.JButton();
         btnManagePharmaceutical = new javax.swing.JButton();
         btnManagePharmacy = new javax.swing.JButton();
         btnManageGovernment = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnManageHospital1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        jPanel1.setBackground(new java.awt.Color(163, 186, 195));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnManageHospital.setBackground(new java.awt.Color(255, 255, 204));
-        btnManageHospital.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnManageHospital.setBackground(new java.awt.Color(0, 105, 137));
+        btnManageHospital.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        btnManageHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnManageHospital.setText("Dashboard");
         btnManageHospital.setBorderPainted(false);
         btnManageHospital.addActionListener(new java.awt.event.ActionListener() {
@@ -58,10 +58,11 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                 btnManageHospitalActionPerformed(evt);
             }
         });
-        jPanel1.add(btnManageHospital, new java.awt.GridBagConstraints());
+        jPanel1.add(btnManageHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 530, 370, 50));
 
-        btnManagePharmaceutical.setBackground(new java.awt.Color(255, 255, 204));
-        btnManagePharmaceutical.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnManagePharmaceutical.setBackground(new java.awt.Color(0, 105, 137));
+        btnManagePharmaceutical.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        btnManagePharmaceutical.setForeground(new java.awt.Color(255, 255, 255));
         btnManagePharmaceutical.setText("Manage Pharmaceutical");
         btnManagePharmaceutical.setBorderPainted(false);
         btnManagePharmaceutical.addActionListener(new java.awt.event.ActionListener() {
@@ -69,17 +70,11 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                 btnManagePharmaceuticalActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipadx = 133;
-        gridBagConstraints.ipady = 23;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(26, 200, 0, 0);
-        jPanel1.add(btnManagePharmaceutical, gridBagConstraints);
+        jPanel1.add(btnManagePharmaceutical, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 350, 370, 51));
 
-        btnManagePharmacy.setBackground(new java.awt.Color(255, 255, 204));
-        btnManagePharmacy.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnManagePharmacy.setBackground(new java.awt.Color(0, 105, 137));
+        btnManagePharmacy.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        btnManagePharmacy.setForeground(new java.awt.Color(255, 255, 255));
         btnManagePharmacy.setText("Manage Pharmacy");
         btnManagePharmacy.setBorderPainted(false);
         btnManagePharmacy.addActionListener(new java.awt.event.ActionListener() {
@@ -87,17 +82,11 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                 btnManagePharmacyActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipadx = 186;
-        gridBagConstraints.ipady = 19;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 200, 0, 0);
-        jPanel1.add(btnManagePharmacy, gridBagConstraints);
+        jPanel1.add(btnManagePharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 370, 47));
 
-        btnManageGovernment.setBackground(new java.awt.Color(255, 255, 204));
-        btnManageGovernment.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnManageGovernment.setBackground(new java.awt.Color(0, 105, 137));
+        btnManageGovernment.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        btnManageGovernment.setForeground(new java.awt.Color(255, 255, 255));
         btnManageGovernment.setText("Manage Insurance Provider");
         btnManageGovernment.setBorderPainted(false);
         btnManageGovernment.addActionListener(new java.awt.event.ActionListener() {
@@ -105,42 +94,17 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                 btnManageGovernmentbtnManageInsuranceProviderlActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.ipadx = 100;
-        gridBagConstraints.ipady = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 200, 65, 0);
-        jPanel1.add(btnManageGovernment, gridBagConstraints);
+        jPanel1.add(btnManageGovernment, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 370, 50));
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/SystemAdmin/systemadminColor.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 237;
-        gridBagConstraints.ipady = -193;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(22, 23, 0, 0);
-        jPanel1.add(jLabel3, gridBagConstraints);
-
-        jLabel2.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Garamond", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 51, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("WELCOME SYSTEM ADMIN !");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 251;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(64, 17, 0, 0);
-        jPanel1.add(jLabel2, gridBagConstraints);
+        jLabel2.setText("SYSTEM ADMIN DASHBOARD");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 32, 1190, 60));
 
-        btnManageHospital1.setBackground(new java.awt.Color(255, 255, 204));
-        btnManageHospital1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnManageHospital1.setBackground(new java.awt.Color(0, 105, 137));
+        btnManageHospital1.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        btnManageHospital1.setForeground(new java.awt.Color(255, 255, 255));
         btnManageHospital1.setText("Manage Hospital");
         btnManageHospital1.setBorderPainted(false);
         btnManageHospital1.addActionListener(new java.awt.event.ActionListener() {
@@ -148,28 +112,20 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                 btnManageHospital1ActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 199;
-        gridBagConstraints.ipady = 17;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(29, 200, 0, 0);
-        jPanel1.add(btnManageHospital1, gridBagConstraints);
+        jPanel1.add(btnManageHospital1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 370, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/Admin.gif"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 570, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 976, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 976, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 667, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 667, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -219,8 +175,8 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JButton btnManageHospital1;
     private javax.swing.JButton btnManagePharmaceutical;
     private javax.swing.JButton btnManagePharmacy;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
