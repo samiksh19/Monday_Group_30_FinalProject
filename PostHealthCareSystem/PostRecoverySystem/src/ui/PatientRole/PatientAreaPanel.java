@@ -87,10 +87,11 @@ public class PatientAreaPanel extends javax.swing.JPanel {
         btnorderInfoAndFeedback2 = new javax.swing.JButton();
         btnorderInfoAndFeedback3 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 102, 102));
+        setBackground(new java.awt.Color(163, 186, 195));
 
-        btnOrderIssue.setBackground(new java.awt.Color(255, 255, 204));
+        btnOrderIssue.setBackground(new java.awt.Color(0, 105, 137));
         btnOrderIssue.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnOrderIssue.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderIssue.setText("Manage Medicine Order");
         btnOrderIssue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,8 +99,9 @@ public class PatientAreaPanel extends javax.swing.JPanel {
             }
         });
 
-        btnorderInfoAndFeedback.setBackground(new java.awt.Color(255, 255, 204));
+        btnorderInfoAndFeedback.setBackground(new java.awt.Color(0, 105, 137));
         btnorderInfoAndFeedback.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnorderInfoAndFeedback.setForeground(new java.awt.Color(255, 255, 255));
         btnorderInfoAndFeedback.setText("Insurance Claim Form");
         btnorderInfoAndFeedback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,8 +109,9 @@ public class PatientAreaPanel extends javax.swing.JPanel {
             }
         });
 
-        btnOrderIssue1.setBackground(new java.awt.Color(255, 255, 204));
+        btnOrderIssue1.setBackground(new java.awt.Color(0, 105, 137));
         btnOrderIssue1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnOrderIssue1.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderIssue1.setText("Manage Appointment");
         btnOrderIssue1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,8 +119,9 @@ public class PatientAreaPanel extends javax.swing.JPanel {
             }
         });
 
-        btnOrderIssue2.setBackground(new java.awt.Color(255, 255, 204));
+        btnOrderIssue2.setBackground(new java.awt.Color(0, 105, 137));
         btnOrderIssue2.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnOrderIssue2.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderIssue2.setText("Schedule Emergency Request");
         btnOrderIssue2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,8 +129,9 @@ public class PatientAreaPanel extends javax.swing.JPanel {
             }
         });
 
-        btnorderInfoAndFeedback1.setBackground(new java.awt.Color(255, 255, 204));
+        btnorderInfoAndFeedback1.setBackground(new java.awt.Color(0, 105, 137));
         btnorderInfoAndFeedback1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnorderInfoAndFeedback1.setForeground(new java.awt.Color(255, 255, 255));
         btnorderInfoAndFeedback1.setText("View Doctor Information");
         btnorderInfoAndFeedback1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,11 +143,12 @@ public class PatientAreaPanel extends javax.swing.JPanel {
         jLabel1.setText("jLabel1");
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(204, 51, 0));
         jLabel2.setText("WELCOME, DEAR PATIENT!");
 
-        btnorderInfoAndFeedback2.setBackground(new java.awt.Color(255, 255, 204));
+        btnorderInfoAndFeedback2.setBackground(new java.awt.Color(0, 105, 137));
         btnorderInfoAndFeedback2.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnorderInfoAndFeedback2.setForeground(new java.awt.Color(255, 255, 255));
         btnorderInfoAndFeedback2.setText("View Hospital Information");
         btnorderInfoAndFeedback2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,8 +156,9 @@ public class PatientAreaPanel extends javax.swing.JPanel {
             }
         });
 
-        btnorderInfoAndFeedback3.setBackground(new java.awt.Color(255, 255, 204));
+        btnorderInfoAndFeedback3.setBackground(new java.awt.Color(0, 105, 137));
         btnorderInfoAndFeedback3.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnorderInfoAndFeedback3.setForeground(new java.awt.Color(255, 255, 255));
         btnorderInfoAndFeedback3.setText("View Family Details");
         btnorderInfoAndFeedback3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,7 +189,7 @@ public class PatientAreaPanel extends javax.swing.JPanel {
                                 .addComponent(btnOrderIssue2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnorderInfoAndFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnorderInfoAndFeedback3, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(64, 64, 64))))
+                        .addGap(9, 9, 9))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,9 +211,9 @@ public class PatientAreaPanel extends javax.swing.JPanel {
                         .addComponent(btnorderInfoAndFeedback2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
                         .addComponent(btnorderInfoAndFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(31, 31, 31)
                         .addComponent(btnorderInfoAndFeedback3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

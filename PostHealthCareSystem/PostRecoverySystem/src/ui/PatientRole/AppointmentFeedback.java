@@ -123,22 +123,20 @@ public class AppointmentFeedback extends javax.swing.JPanel {
         doctorName = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 102, 102));
+        setBackground(new java.awt.Color(163, 186, 195));
 
         message.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
-        message.setForeground(new java.awt.Color(255, 255, 255));
         message.setText("<value>");
 
         jLabel13.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Status");
 
         status.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
-        status.setForeground(new java.awt.Color(255, 255, 255));
         status.setText("<value>");
 
-        payBillBtn.setBackground(new java.awt.Color(255, 255, 204));
+        payBillBtn.setBackground(new java.awt.Color(0, 105, 137));
         payBillBtn.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        payBillBtn.setForeground(new java.awt.Color(255, 255, 255));
         payBillBtn.setText("Pay Bill");
         payBillBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,8 +147,9 @@ public class AppointmentFeedback extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/PatientRole/calender.jpeg"))); // NOI18N
         jLabel2.setText("jLabel2");
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 204));
+        jButton1.setBackground(new java.awt.Color(0, 105, 137));
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,21 +157,19 @@ public class AppointmentFeedback extends javax.swing.JPanel {
             }
         });
 
+        jLabel11.setBackground(new java.awt.Color(204, 51, 0));
         jLabel11.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setForeground(new java.awt.Color(204, 51, 0));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("APPOINTMENT DETAILS");
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Doctor's Name");
 
         doctorName.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
-        doctorName.setForeground(new java.awt.Color(255, 255, 255));
         doctorName.setText("<value>");
 
         jLabel8.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Message");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -208,25 +205,25 @@ public class AppointmentFeedback extends javax.swing.JPanel {
                         .addComponent(payBillBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(310, 310, 310)
-                        .addComponent(jLabel11))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addGap(271, 271, 271))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1)
-                .addGap(156, 156, 156)
+                .addGap(72, 72, 72)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(131, 131, 131)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97)
+                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(doctorName))
@@ -240,9 +237,7 @@ public class AppointmentFeedback extends javax.swing.JPanel {
                             .addComponent(message))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(payBillBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents

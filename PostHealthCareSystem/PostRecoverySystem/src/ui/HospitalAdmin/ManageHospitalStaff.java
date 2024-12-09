@@ -17,7 +17,6 @@ import Business.LabAssistant.LabAssistantDirectory;
 import Business.Nurse.Nurse;
 import Business.Nurse.NurseDirectory;
 import Business.Role.AccountantRole;
-import Business.Role.AmbulanceDriverRole;
 import Business.Role.DoctorRole;
 import Business.Role.LabExaminerRole;
 import Business.Role.NurseRole;
@@ -310,7 +309,6 @@ public class ManageHospitalStaff extends javax.swing.JPanel {
                     driver.setType(choice);
                     driver.setUsername(staffName);
                     driver.setPassword(password);
-                    driver.setRole(new AmbulanceDriverRole());
                     business.getUserAccountDirectory().addUserAccount(driver);
                     business.getAmbulanceDirectory().addAmbulanceDriver(driver);
                     break;
