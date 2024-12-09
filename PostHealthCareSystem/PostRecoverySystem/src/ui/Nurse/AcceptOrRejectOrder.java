@@ -158,6 +158,7 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
 
         btnBack1.setBackground(new java.awt.Color(0, 105, 137));
         btnBack1.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnBack1.setForeground(new java.awt.Color(255, 255, 255));
         btnBack1.setText("Back");
         btnBack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +169,7 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
 
         acceptOrder.setBackground(new java.awt.Color(0, 105, 137));
         acceptOrder.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        acceptOrder.setForeground(new java.awt.Color(255, 255, 255));
         acceptOrder.setText("Accept Appointment");
         acceptOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,6 +204,7 @@ public class AcceptOrRejectOrder extends javax.swing.JPanel {
 
         declineOrder.setBackground(new java.awt.Color(0, 105, 137));
         declineOrder.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        declineOrder.setForeground(new java.awt.Color(255, 255, 255));
         declineOrder.setText("Decline Appointment");
         declineOrder.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {

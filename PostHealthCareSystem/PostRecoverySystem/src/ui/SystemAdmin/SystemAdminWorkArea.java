@@ -38,7 +38,6 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         btnManageHospital = new javax.swing.JButton();
-        btnManagePharmaceutical = new javax.swing.JButton();
         btnManagePharmacy = new javax.swing.JButton();
         btnManageGovernment = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -58,19 +57,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                 btnManageHospitalActionPerformed(evt);
             }
         });
-        jPanel1.add(btnManageHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 530, 370, 50));
-
-        btnManagePharmaceutical.setBackground(new java.awt.Color(0, 105, 137));
-        btnManagePharmaceutical.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
-        btnManagePharmaceutical.setForeground(new java.awt.Color(255, 255, 255));
-        btnManagePharmaceutical.setText("Manage Pharmaceutical");
-        btnManagePharmaceutical.setBorderPainted(false);
-        btnManagePharmaceutical.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManagePharmaceuticalActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnManagePharmaceutical, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 350, 370, 51));
+        jPanel1.add(btnManageHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 500, 370, 60));
 
         btnManagePharmacy.setBackground(new java.awt.Color(0, 105, 137));
         btnManagePharmacy.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
@@ -82,7 +69,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                 btnManagePharmacyActionPerformed(evt);
             }
         });
-        jPanel1.add(btnManagePharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 370, 47));
+        jPanel1.add(btnManagePharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 280, 370, 60));
 
         btnManageGovernment.setBackground(new java.awt.Color(0, 105, 137));
         btnManageGovernment.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
@@ -94,7 +81,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                 btnManageGovernmentbtnManageInsuranceProviderlActionPerformed(evt);
             }
         });
-        jPanel1.add(btnManageGovernment, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 370, 50));
+        jPanel1.add(btnManageGovernment, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 370, 60));
 
         jLabel2.setFont(new java.awt.Font("Garamond", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 51, 0));
@@ -112,7 +99,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                 btnManageHospital1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnManageHospital1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 370, 50));
+        jPanel1.add(btnManageHospital1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 370, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/Admin.gif"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 570, 580));
@@ -134,14 +121,6 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
  Dashboard ad = new Dashboard();
         System.out.println("Inside admin dashboard");
     }//GEN-LAST:event_btnManageHospitalActionPerformed
-
-    private void btnManagePharmaceuticalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePharmaceuticalActionPerformed
-        // TODO add your handling code here:
-        ManagePharmaceutical manageParmaceuticalJPanel = new ManagePharmaceutical(userProcessContainer, business);
-        userProcessContainer.add("manageParmaceuticalJPanel",manageParmaceuticalJPanel);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnManagePharmaceuticalActionPerformed
 
     private void btnManagePharmacyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePharmacyActionPerformed
         // TODO add your handling code here:
@@ -173,7 +152,6 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JButton btnManageGovernment;
     private javax.swing.JButton btnManageHospital;
     private javax.swing.JButton btnManageHospital1;
-    private javax.swing.JButton btnManagePharmaceutical;
     private javax.swing.JButton btnManagePharmacy;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
