@@ -71,7 +71,7 @@ public class ProcessAccountingRequests extends javax.swing.JPanel {
         btnStatus = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(163, 186, 195));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         backJButton.setBackground(new java.awt.Color(166, 206, 55));
@@ -126,8 +126,7 @@ public class ProcessAccountingRequests extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(57, 129, 0, 0);
         jPanel1.add(jLabel3, gridBagConstraints);
 
-        jLabel5.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         jLabel5.setText("Status");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -147,8 +146,9 @@ public class ProcessAccountingRequests extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(18, 67, 0, 0);
         jPanel1.add(status, gridBagConstraints);
 
-        btnStatus.setBackground(new java.awt.Color(255, 255, 204));
+        btnStatus.setBackground(new java.awt.Color(0, 105, 137));
         btnStatus.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        btnStatus.setForeground(new java.awt.Color(255, 255, 255));
         btnStatus.setText("Pick Order");
         btnStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

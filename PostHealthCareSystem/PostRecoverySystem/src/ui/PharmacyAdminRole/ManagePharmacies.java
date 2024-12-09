@@ -75,11 +75,13 @@ public class ManagePharmacies extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         btnBack2 = new javax.swing.JButton();
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
+        setBackground(new java.awt.Color(163, 186, 195));
+
+        jPanel2.setBackground(new java.awt.Color(163, 186, 195));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 51, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MANAGE PHARMACY INFORMATION");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -93,7 +95,6 @@ public class ManagePharmacies extends javax.swing.JPanel {
         jPanel2.add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Pharmacy Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -119,8 +120,9 @@ public class ManagePharmacies extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(33, 18, 0, 0);
         jPanel2.add(restaurantName, gridBagConstraints);
 
-        updateButton.setBackground(new java.awt.Color(255, 255, 204));
+        updateButton.setBackground(new java.awt.Color(0, 105, 137));
         updateButton.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        updateButton.setForeground(new java.awt.Color(255, 255, 255));
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,8 +138,9 @@ public class ManagePharmacies extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(40, 149, 0, 0);
         jPanel2.add(updateButton, gridBagConstraints);
 
-        confirmButton.setBackground(new java.awt.Color(255, 255, 204));
+        confirmButton.setBackground(new java.awt.Color(0, 105, 137));
         confirmButton.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        confirmButton.setForeground(new java.awt.Color(255, 255, 255));
         confirmButton.setText("Save");
         confirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +156,9 @@ public class ManagePharmacies extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(40, 32, 0, 0);
         jPanel2.add(confirmButton, gridBagConstraints);
 
+        jLabel3.setBackground(new java.awt.Color(163, 186, 195));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/PharmacyAdminRole/pharmacy.jpeg"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
@@ -181,7 +186,6 @@ public class ManagePharmacies extends javax.swing.JPanel {
         jPanel2.add(address, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Pharmacy Address");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -208,7 +212,6 @@ public class ManagePharmacies extends javax.swing.JPanel {
         jPanel2.add(contact, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Pharmacy Contact");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -218,8 +221,9 @@ public class ManagePharmacies extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(21, 126, 0, 0);
         jPanel2.add(jLabel5, gridBagConstraints);
 
-        btnBack2.setBackground(new java.awt.Color(255, 255, 204));
+        btnBack2.setBackground(new java.awt.Color(0, 105, 137));
         btnBack2.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+        btnBack2.setForeground(new java.awt.Color(255, 255, 255));
         btnBack2.setText("Back");
         btnBack2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,15 +243,15 @@ public class ManagePharmacies extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1003, Short.MAX_VALUE)
+            .addGap(0, 1152, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1003, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 763, Short.MAX_VALUE)
+            .addGap(0, 1006, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
